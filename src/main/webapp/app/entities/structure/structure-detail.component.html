@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="structure">
+            <h2><span jhiTranslate="sigrhpApp.structure.detail.title">Structure</span> {{ structure.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.structure.denomination">Denomination</span></dt>
+                <dd>
+                    <span>{{ structure.denomination }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ structure.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ structure.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.ninea">Ninea</span></dt>
+                <dd>
+                    <span>{{ structure.ninea }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.capital">Capital</span></dt>
+                <dd>
+                    <span>{{ structure.capital }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.numeroIpres">Numero Ipres</span></dt>
+                <dd>
+                    <span>{{ structure.numeroIpres }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.numeroCss">Numero Css</span></dt>
+                <dd>
+                    <span>{{ structure.numeroCss }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.logo">Logo</span></dt>
+                <dd>
+                    <div *ngIf="structure.logo">
+                        <a (click)="openFile(structure.logoContentType, structure.logo)">
+                            <img [src]="'data:' + structure.logoContentType + ';base64,' + structure.logo" style="max-width: 100%;" alt="structure image"/>
+                        </a>
+                        {{ structure.logoContentType }}, {{ byteSize(structure.logo) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.ipm">Ipm</span></dt>
+                <dd>
+                    <span>{{ structure.ipm }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.signature">Signature</span></dt>
+                <dd>
+                    <div *ngIf="structure.signature">
+                        <a (click)="openFile(structure.signatureContentType, structure.signature)">
+                            <img [src]="'data:' + structure.signatureContentType + ';base64,' + structure.signature" style="max-width: 100%;" alt="structure image"/>
+                        </a>
+                        {{ structure.signatureContentType }}, {{ byteSize(structure.signature) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.montantIpm">Montant Ipm</span></dt>
+                <dd>
+                    <span>{{ structure.montantIpm }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.structure.convention">Convention</span></dt>
+                <dd>
+                    <div *ngIf="structure.convention">
+                        <a [routerLink]="['/convention', structure.convention?.id, 'view']">{{ structure.convention?.libelle }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/structure', structure.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

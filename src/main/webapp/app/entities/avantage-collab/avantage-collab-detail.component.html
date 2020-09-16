@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="avantageCollab">
+            <h2><span jhiTranslate="sigrhpApp.avantageCollab.detail.title">Avantage Collab</span> {{ avantageCollab.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.avantageCollab.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ avantageCollab.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.avantageCollab.collaborateur">Collaborateur</span></dt>
+                <dd>
+                    <div *ngIf="avantageCollab.collaborateur">
+                        <a [routerLink]="['/collaborateur', avantageCollab.collaborateur?.id, 'view']">{{ avantageCollab.collaborateur?.prenom }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.avantageCollab.avantage">Avantage</span></dt>
+                <dd>
+                    <div *ngIf="avantageCollab.avantage">
+                        <a [routerLink]="['/avantage', avantageCollab.avantage?.id, 'view']">{{ avantageCollab.avantage?.libelle }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/avantage-collab', avantageCollab.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

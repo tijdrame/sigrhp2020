@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bareme-heading" jhiTranslate="sigrhpApp.bareme.home.createOrEditLabel">Create or edit a Bareme</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.revenuBrut" for="field_revenuBrut">Revenu Brut</label>
+                    <input type="number" class="form-control" name="revenuBrut" id="field_revenuBrut"
+                           formControlName="revenuBrut"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.trimF" for="field_trimF">Trim F</label>
+                    <input type="number" class="form-control" name="trimF" id="field_trimF"
+                           formControlName="trimF"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.unePart" for="field_unePart">Une Part</label>
+                    <input type="number" class="form-control" name="unePart" id="field_unePart"
+                           formControlName="unePart"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.unePartEtDemi" for="field_unePartEtDemi">Une Part Et Demi</label>
+                    <input type="number" class="form-control" name="unePartEtDemi" id="field_unePartEtDemi"
+                           formControlName="unePartEtDemi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.deuxParts" for="field_deuxParts">Deux Parts</label>
+                    <input type="number" class="form-control" name="deuxParts" id="field_deuxParts"
+                           formControlName="deuxParts"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.deuxPartsEtDemi" for="field_deuxPartsEtDemi">Deux Parts Et Demi</label>
+                    <input type="number" class="form-control" name="deuxPartsEtDemi" id="field_deuxPartsEtDemi"
+                           formControlName="deuxPartsEtDemi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.troisParts" for="field_troisParts">Trois Parts</label>
+                    <input type="number" class="form-control" name="troisParts" id="field_troisParts"
+                           formControlName="troisParts"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.troisPartsEtDemi" for="field_troisPartsEtDemi">Trois Parts Et Demi</label>
+                    <input type="number" class="form-control" name="troisPartsEtDemi" id="field_troisPartsEtDemi"
+                           formControlName="troisPartsEtDemi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.quatreParts" for="field_quatreParts">Quatre Parts</label>
+                    <input type="number" class="form-control" name="quatreParts" id="field_quatreParts"
+                           formControlName="quatreParts"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.quatrePartsEtDemi" for="field_quatrePartsEtDemi">Quatre Parts Et Demi</label>
+                    <input type="number" class="form-control" name="quatrePartsEtDemi" id="field_quatrePartsEtDemi"
+                           formControlName="quatrePartsEtDemi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bareme.cinqParts" for="field_cinqParts">Cinq Parts</label>
+                    <input type="number" class="form-control" name="cinqParts" id="field_cinqParts"
+                           formControlName="cinqParts"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

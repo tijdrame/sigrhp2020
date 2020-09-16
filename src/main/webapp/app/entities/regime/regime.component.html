@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigrhpApp.regime.home.title">Regimes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-regime" [routerLink]="['/regime/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sigrhpApp.regime.home.createLabel">
+            Create a new Regime
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="regimes?.length === 0">
+        <span jhiTranslate="sigrhpApp.moisConcerne.home.notFound">No regimes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="regimes && regimes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="sigrhpApp.regime.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="sigrhpApp.regime.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tauxPatronal"><span jhiTranslate="sigrhpApp.regime.tauxPatronal">Taux Patronal</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tauxSalarial"><span jhiTranslate="sigrhpApp.regime.tauxSalarial">Taux Salarial</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="plafond"><span jhiTranslate="sigrhpApp.regime.plafond">Plafond</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="structure.denomination"><span jhiTranslate="sigrhpApp.regime.structure">Structure</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let regime of regimes ;trackBy: trackId">
+                    <td><a [routerLink]="['/regime', regime.id, 'view']">{{ regime.id }}</a></td>
+                    <td>{{ regime.libelle }}</td>
+                    <td>{{ regime.code }}</td>
+                    <td>{{ regime.tauxPatronal }}</td>
+                    <td>{{ regime.tauxSalarial }}</td>
+                    <td>{{ regime.plafond }}</td>
+                    <td>
+                        <div *ngIf="regime.structure">
+                            <a [routerLink]="['/structure', regime.structure?.id, 'view']" >{{ regime.structure?.denomination }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/regime', regime.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/regime', regime.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(regime)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="regimes && regimes.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

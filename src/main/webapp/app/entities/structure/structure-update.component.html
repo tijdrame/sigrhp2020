@@ -1,0 +1,160 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-structure-heading" jhiTranslate="sigrhpApp.structure.home.createOrEditLabel">Create or edit a Structure</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.denomination" for="field_denomination">Denomination</label>
+                    <input type="text" class="form-control" name="denomination" id="field_denomination"
+                           formControlName="denomination"/>
+                    <div *ngIf="editForm.get('denomination')!.invalid && (editForm.get('denomination')!.dirty || editForm.get('denomination')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('denomination')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.telephone" for="field_telephone">Telephone</label>
+                    <input type="text" class="form-control" name="telephone" id="field_telephone"
+                           formControlName="telephone"/>
+                    <div *ngIf="editForm.get('telephone')!.invalid && (editForm.get('telephone')!.dirty || editForm.get('telephone')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('telephone')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.adresse" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                           formControlName="adresse"/>
+                    <div *ngIf="editForm.get('adresse')!.invalid && (editForm.get('adresse')!.dirty || editForm.get('adresse')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('adresse')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.ninea" for="field_ninea">Ninea</label>
+                    <input type="text" class="form-control" name="ninea" id="field_ninea"
+                           formControlName="ninea"/>
+                    <div *ngIf="editForm.get('ninea')!.invalid && (editForm.get('ninea')!.dirty || editForm.get('ninea')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ninea')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.capital" for="field_capital">Capital</label>
+                    <input type="number" class="form-control" name="capital" id="field_capital"
+                           formControlName="capital"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.numeroIpres" for="field_numeroIpres">Numero Ipres</label>
+                    <input type="text" class="form-control" name="numeroIpres" id="field_numeroIpres"
+                           formControlName="numeroIpres"/>
+                    <div *ngIf="editForm.get('numeroIpres')!.invalid && (editForm.get('numeroIpres')!.dirty || editForm.get('numeroIpres')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroIpres')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.numeroCss" for="field_numeroCss">Numero Css</label>
+                    <input type="text" class="form-control" name="numeroCss" id="field_numeroCss"
+                           formControlName="numeroCss"/>
+                    <div *ngIf="editForm.get('numeroCss')!.invalid && (editForm.get('numeroCss')!.dirty || editForm.get('numeroCss')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroCss')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.logo" for="field_logo">Logo</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('logoContentType')!.value + ';base64,' + editForm.get('logo')!.value" style="max-height: 100px;" *ngIf="editForm.get('logo')!.value" alt="structure image"/>
+                        <div *ngIf="editForm.get('logo')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('logoContentType')!.value }}, {{ byteSize(editForm.get('logo')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('logo', 'logoContentType', 'file_logo')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_logo" (change)="setFileData($event, 'logo', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="logo" id="field_logo"
+                           formControlName="logo"/>
+                    <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                           formControlName="logoContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.ipm" for="field_ipm">Ipm</label>
+                    <input type="checkbox" class="form-control" name="ipm" id="field_ipm"
+                           formControlName="ipm"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.signature" for="field_signature">Signature</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('signatureContentType')!.value + ';base64,' + editForm.get('signature')!.value" style="max-height: 100px;" *ngIf="editForm.get('signature')!.value" alt="structure image"/>
+                        <div *ngIf="editForm.get('signature')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('signatureContentType')!.value }}, {{ byteSize(editForm.get('signature')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('signature', 'signatureContentType', 'file_signature')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_signature" (change)="setFileData($event, 'signature', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="signature" id="field_signature"
+                           formControlName="signature"/>
+                    <input type="hidden" class="form-control" name="signatureContentType" id="field_signatureContentType"
+                           formControlName="signatureContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.montantIpm" for="field_montantIpm">Montant Ipm</label>
+                    <input type="number" class="form-control" name="montantIpm" id="field_montantIpm"
+                           formControlName="montantIpm"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.structure.convention" for="field_convention">Convention</label>
+                    <select class="form-control" id="field_convention" name="convention" formControlName="convention">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="conventionOption.id === editForm.get('convention')!.value?.id ? editForm.get('convention')!.value : conventionOption" *ngFor="let conventionOption of conventions; trackBy: trackById">{{ conventionOption.libelle }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

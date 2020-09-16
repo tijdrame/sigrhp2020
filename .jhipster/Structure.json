@@ -1,0 +1,85 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "convention",
+            "otherEntityName": "convention",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "libelle"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "denomination",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telephone",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "adresse",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ninea",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "capital",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "numeroIpres",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroCss",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "ipm",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "signature",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "montantIpm",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20181227092426",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "structure",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

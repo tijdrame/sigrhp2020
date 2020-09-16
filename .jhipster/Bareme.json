@@ -1,0 +1,58 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "revenuBrut",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "trimF",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "unePart",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "unePartEtDemi",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "deuxParts",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "deuxPartsEtDemi",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "troisParts",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "troisPartsEtDemi",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "quatreParts",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "quatrePartsEtDemi",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cinqParts",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20181228105104",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "bareme",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

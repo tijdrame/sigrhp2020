@@ -1,0 +1,28 @@
+{
+    "sigrhpApp": {
+        "demandeConge": {
+            "home": {
+                "title": "Liste Demandes Conges / Absences",
+                "createLabel": "Créer une Demande Conge",
+                "createOrEditLabel": "Créer ou éditer une Demande Conge"
+            },
+            "created": "Un nouvelle Demande Conge a été créé avec l'identifiant {{ param }}",
+            "updated": "La Demande Conge avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Demande Conge avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la Demande Conge {{ id }} ?"
+            },
+            "detail": {
+                "title": "Demande Conge"
+            },
+            "dateDebut": "Période du",
+            "dateFin": "Au",
+            "motifRejet": "Motif Rejet",
+            "libelle": "Libelle",
+            "statutRH": "Statut RH",
+            "statutDG": "Statut DG",
+            "collaborateur": "Collaborateur",
+            "typeAbsence": "Type Absence"
+        }
+    }
+}

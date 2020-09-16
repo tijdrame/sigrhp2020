@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "collaborateur",
+            "otherEntityName": "collaborateur",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "prenom"
+        },
+        {
+            "relationshipName": "pret",
+            "otherEntityName": "pret",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "libelle"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "montant",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isRembourse",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20190110114339",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "detail_pret",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

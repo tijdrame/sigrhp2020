@@ -1,0 +1,130 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-recap-heading" jhiTranslate="sigrhpApp.recap.home.createOrEditLabel">Create or edit a Recap</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.brutFiscal" for="field_brutFiscal">Brut Fiscal</label>
+                    <input type="number" class="form-control" name="brutFiscal" id="field_brutFiscal"
+                           formControlName="brutFiscal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.netAPayer" for="field_netAPayer">Net A Payer</label>
+                    <input type="number" class="form-control" name="netAPayer" id="field_netAPayer"
+                           formControlName="netAPayer"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.salaireBrutMensuel" for="field_salaireBrutMensuel">Salaire Brut Mensuel</label>
+                    <input type="number" class="form-control" name="salaireBrutMensuel" id="field_salaireBrutMensuel"
+                           formControlName="salaireBrutMensuel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.impotSurRevenu" for="field_impotSurRevenu">Impot Sur Revenu</label>
+                    <input type="number" class="form-control" name="impotSurRevenu" id="field_impotSurRevenu"
+                           formControlName="impotSurRevenu"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.trimf" for="field_trimf">Trimf</label>
+                    <input type="number" class="form-control" name="trimf" id="field_trimf"
+                           formControlName="trimf"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.ipresPartSalariale" for="field_ipresPartSalariale">Ipres Part Salariale</label>
+                    <input type="number" class="form-control" name="ipresPartSalariale" id="field_ipresPartSalariale"
+                           formControlName="ipresPartSalariale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.totRetenue" for="field_totRetenue">Tot Retenue</label>
+                    <input type="number" class="form-control" name="totRetenue" id="field_totRetenue"
+                           formControlName="totRetenue"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.ipresPartPatronales" for="field_ipresPartPatronales">Ipres Part Patronales</label>
+                    <input type="number" class="form-control" name="ipresPartPatronales" id="field_ipresPartPatronales"
+                           formControlName="ipresPartPatronales"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.cssAccidentDeTravail" for="field_cssAccidentDeTravail">Css Accident De Travail</label>
+                    <input type="number" class="form-control" name="cssAccidentDeTravail" id="field_cssAccidentDeTravail"
+                           formControlName="cssAccidentDeTravail"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.cssPrestationFamiliale" for="field_cssPrestationFamiliale">Css Prestation Familiale</label>
+                    <input type="number" class="form-control" name="cssPrestationFamiliale" id="field_cssPrestationFamiliale"
+                           formControlName="cssPrestationFamiliale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.ipmPatronale" for="field_ipmPatronale">Ipm Patronale</label>
+                    <input type="number" class="form-control" name="ipmPatronale" id="field_ipmPatronale"
+                           formControlName="ipmPatronale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.contributionForfaitaire" for="field_contributionForfaitaire">Contribution Forfaitaire</label>
+                    <input type="number" class="form-control" name="contributionForfaitaire" id="field_contributionForfaitaire"
+                           formControlName="contributionForfaitaire"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.primeImposable" for="field_primeImposable">Prime Imposable</label>
+                    <input type="number" class="form-control" name="primeImposable" id="field_primeImposable"
+                           formControlName="primeImposable"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.primeNonImposable" for="field_primeNonImposable">Prime Non Imposable</label>
+                    <input type="number" class="form-control" name="primeNonImposable" id="field_primeNonImposable"
+                           formControlName="primeNonImposable"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.avantage" for="field_avantage">Avantage</label>
+                    <input type="number" class="form-control" name="avantage" id="field_avantage"
+                           formControlName="avantage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.recapLigne" for="field_recapLigne">Recap Ligne</label>
+                    <input type="number" class="form-control" name="recapLigne" id="field_recapLigne"
+                           formControlName="recapLigne"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.recap.collaborateur" for="field_collaborateur">Collaborateur</label>
+                    <select class="form-control" id="field_collaborateur" name="collaborateur" formControlName="collaborateur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="collaborateurOption.id === editForm.get('collaborateur')!.value?.id ? editForm.get('collaborateur')!.value : collaborateurOption" *ngFor="let collaborateurOption of collaborateurs; trackBy: trackById">{{ collaborateurOption.prenom }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

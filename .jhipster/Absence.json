@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "collaborateur",
+            "otherEntityName": "collaborateur",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "prenom"
+        },
+        {
+            "relationshipName": "motif",
+            "otherEntityName": "motif",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "libelle"
+        },
+        {
+            "relationshipName": "exercice",
+            "otherEntityName": "exercice",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "debutExercice"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dateAbsence",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20190110113314",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "absence",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

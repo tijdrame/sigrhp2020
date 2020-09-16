@@ -1,0 +1,30 @@
+{
+    "sigrhpApp": {
+        "categorie": {
+            "home": {
+                "title": "Liste Categories",
+                "createLabel": "Créer une Categorie",
+                "createOrEditLabel": "Créer ou éditer une Categorie"
+            },
+            "created": "Une nouvelle Categorie a été créé avec l'identifiant {{ param }}",
+            "updated": "La Categorie avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Categorie avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la Categorie {{ id }} ?"
+            },
+            "detail": {
+                "title": "Categorie"
+            },
+            "libelle": "Libelle",
+            "code": "Code",
+            "design": "Designation",
+            "nb": "Nombres",
+            "taux": "Taux",
+            "retenues": "Retenues",
+            "gains": "Gains",
+            "charge": "Charges Patronales",
+            "forfait": "Forfait heure supplémentaire",
+            "structure": "Structure"
+        }
+    }
+}

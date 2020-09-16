@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "structure",
+            "otherEntityName": "structure",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "denomination"
+        },
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userExtra"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20181227093959",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "user_extra",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

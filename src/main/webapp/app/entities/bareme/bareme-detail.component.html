@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bareme">
+            <h2><span jhiTranslate="sigrhpApp.bareme.detail.title">Bareme</span> {{ bareme.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.bareme.revenuBrut">Revenu Brut</span></dt>
+                <dd>
+                    <span>{{ bareme.revenuBrut }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bareme.trimF">Trim F</span></dt>
+                <dd>
+                    <span>{{ bareme.trimF }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bareme.unePart">Une Part</span></dt>
+                <dd>
+                    <span>{{ bareme.unePart }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bareme.unePartEtDemi">Une Part Et Demi</span></dt>
+                <dd>
+                    <span>{{ bareme.unePartEtDemi }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bareme.deuxParts">Deux Parts</span></dt>
+                <dd>
+                    <span>{{ bareme.deuxParts }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bareme.deuxPartsEtDemi">Deux Parts Et Demi</span></dt>
+                <dd>
+                    <span>{{ bareme.deuxPartsEtDemi }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bareme.troisParts">Trois Parts</span></dt>
+                <dd>
+                    <span>{{ bareme.troisParts }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bareme.troisPartsEtDemi">Trois Parts Et Demi</span></dt>
+                <dd>
+                    <span>{{ bareme.troisPartsEtDemi }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bareme.quatreParts">Quatre Parts</span></dt>
+                <dd>
+                    <span>{{ bareme.quatreParts }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bareme.quatrePartsEtDemi">Quatre Parts Et Demi</span></dt>
+                <dd>
+                    <span>{{ bareme.quatrePartsEtDemi }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bareme.cinqParts">Cinq Parts</span></dt>
+                <dd>
+                    <span>{{ bareme.cinqParts }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bareme', bareme.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

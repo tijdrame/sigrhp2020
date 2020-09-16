@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="motif">
+            <h2><span jhiTranslate="sigrhpApp.motif.detail.title">Motif</span> {{ motif.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.motif.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ motif.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.motif.code">Code</span></dt>
+                <dd>
+                    <span>{{ motif.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.motif.structure">Structure</span></dt>
+                <dd>
+                    <div *ngIf="motif.structure">
+                        <a [routerLink]="['/structure', motif.structure?.id, 'view']">{{ motif.structure?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/motif', motif.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

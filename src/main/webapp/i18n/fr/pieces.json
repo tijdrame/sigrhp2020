@@ -1,0 +1,25 @@
+{
+    "sigrhpApp": {
+        "pieces": {
+            "home": {
+                "title": "Liste Pieces",
+                "createLabel": "Créer une nouvelle Pieces",
+                "createOrEditLabel": "Créer ou éditer une Pieces"
+            },
+            "created": "Une nouvelle Pieces a été créé avec l'identifiant {{ param }}",
+            "updated": "La Pieces avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Pieces avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la Pieces {{ id }} ?"
+            },
+            "detail": {
+                "title": "Pieces"
+            },
+            "libelle": "Libelle",
+            "dateCreation": "Date Creation",
+            "dateExpiration": "Date Expiration",
+            "image": "Image",
+            "collaborateur": "Collaborateur"
+        }
+    }
+}

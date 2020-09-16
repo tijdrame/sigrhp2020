@@ -1,0 +1,23 @@
+{
+    "sigrhpApp": {
+        "avantageCollab": {
+            "home": {
+                "title": "Liste Avantages des Collaborateurs",
+                "createLabel": "Créer un nouveau Avantage Collab",
+                "createOrEditLabel": "Créer ou éditer un Avantage Collab"
+            },
+            "created": "Un nouveau Avantage Collaborateur a été créé avec l'identifiant {{ param }}",
+            "updated": "L'Avantage v avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "L'Avantage Collaborateur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer l'Avantage Collaborateur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Avantage Collaborateur"
+            },
+            "montant": "Montant",
+            "collaborateur": "Collaborateur",
+            "avantage": "Avantage"
+        }
+    }
+}

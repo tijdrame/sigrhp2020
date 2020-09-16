@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigrhpApp.pieces.home.title">Pieces</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pieces" [routerLink]="['/pieces/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sigrhpApp.pieces.home.createLabel">
+            Create a new Pieces
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="pieces?.length === 0">
+        <span jhiTranslate="sigrhpApp.pieces.home.notFound">No pieces found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="pieces && pieces.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="sigrhpApp.pieces.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreation"><span jhiTranslate="sigrhpApp.pieces.dateCreation">Date Creation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateExpiration"><span jhiTranslate="sigrhpApp.pieces.dateExpiration">Date Expiration</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="image"><span jhiTranslate="sigrhpApp.pieces.image">Image</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="collaborateur.prenom"><span jhiTranslate="sigrhpApp.pieces.collaborateur">Collaborateur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pieces of pieces ;trackBy: trackId">
+                    <td><a [routerLink]="['/pieces', pieces.id, 'view']">{{ pieces.id }}</a></td>
+                    <td>{{ pieces.libelle }}</td>
+                    <td>{{ pieces.dateCreation | date:'mediumDate' }}</td>
+                    <td>{{ pieces.dateExpiration | date:'mediumDate' }}</td>
+                    <td>
+                        <a *ngIf="pieces.image" (click)="openFile(pieces.imageContentType, pieces.image)">
+                            <img [src]="'data:' + pieces.imageContentType + ';base64,' + pieces.image" style="max-height: 30px;" alt="pieces image"/>
+                        </a>
+                        <span *ngIf="pieces.image">{{ pieces.imageContentType }}, {{ byteSize(pieces.image) }}</span>
+                    </td>
+                    <td>
+                        <div *ngIf="pieces.collaborateur">
+                            <a [routerLink]="['/collaborateur', pieces.collaborateur?.id, 'view']" >{{ pieces.collaborateur?.prenom }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/pieces', pieces.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/pieces', pieces.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(pieces)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="pieces && pieces.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

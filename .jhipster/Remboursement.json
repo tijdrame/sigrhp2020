@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "detailPret",
+            "otherEntityName": "detailPret",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "libelle"
+        },
+        {
+            "relationshipName": "bulletins",
+            "otherEntityName": "bulletin",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "remboursement"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dateRemboursement",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isRembourse",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20190110175122",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "remboursement",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

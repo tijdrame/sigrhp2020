@@ -1,0 +1,108 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigrhpApp.membreFamille.home.title">Membre Familles</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-membre-famille" [routerLink]="['/membre-famille/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sigrhpApp.membreFamille.home.createLabel">
+            Create a new Membre Famille
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="membreFamilles?.length === 0">
+        <span jhiTranslate="sigrhpApp.membreFamille.home.notFound">No membreFamilles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="membreFamilles && membreFamilles.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="sigrhpApp.membreFamille.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="sigrhpApp.membreFamille.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="sigrhpApp.membreFamille.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telephone"><span jhiTranslate="sigrhpApp.membreFamille.telephone">Telephone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateNaissance"><span jhiTranslate="sigrhpApp.membreFamille.dateNaissance">Date Naissance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateMariage"><span jhiTranslate="sigrhpApp.membreFamille.dateMariage">Date Mariage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="photo"><span jhiTranslate="sigrhpApp.membreFamille.photo">Photo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isActif"><span jhiTranslate="sigrhpApp.membreFamille.isActif">Is Actif</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="collaborateur.id"><span jhiTranslate="sigrhpApp.membreFamille.collaborateur">Collaborateur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sexe.libelle"><span jhiTranslate="sigrhpApp.membreFamille.sexe">Sexe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typeRelation.libelle"><span jhiTranslate="sigrhpApp.membreFamille.typeRelation">Type Relation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let membreFamille of membreFamilles ;trackBy: trackId">
+                    <td><a [routerLink]="['/membre-famille', membreFamille.id, 'view']">{{ membreFamille.id }}</a></td>
+                    <td>{{ membreFamille.prenom }}</td>
+                    <td>{{ membreFamille.nom }}</td>
+                    <td>{{ membreFamille.adresse }}</td>
+                    <td>{{ membreFamille.telephone }}</td>
+                    <td>{{ membreFamille.dateNaissance | date:'mediumDate' }}</td>
+                    <td>{{ membreFamille.dateMariage | date:'mediumDate' }}</td>
+                    <td>
+                        <a *ngIf="membreFamille.photo" (click)="openFile(membreFamille.photoContentType, membreFamille.photo)">
+                            <img [src]="'data:' + membreFamille.photoContentType + ';base64,' + membreFamille.photo" style="max-height: 30px;" alt="membreFamille image"/>
+                        </a>
+                        <span *ngIf="membreFamille.photo">{{ membreFamille.photoContentType }}, {{ byteSize(membreFamille.photo) }}</span>
+                    </td>
+                    <td>{{ membreFamille.isActif }}</td>
+                    <td>
+                        <div *ngIf="membreFamille.collaborateur">
+                            <a [routerLink]="['/collaborateur', membreFamille.collaborateur?.id, 'view']" >{{ membreFamille.collaborateur?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="membreFamille.sexe">
+                            <a [routerLink]="['/sexe', membreFamille.sexe?.id, 'view']" >{{ membreFamille.sexe?.libelle }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="membreFamille.typeRelation">
+                            <a [routerLink]="['/type-relation', membreFamille.typeRelation?.id, 'view']" >{{ membreFamille.typeRelation?.libelle }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/membre-famille', membreFamille.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/membre-famille', membreFamille.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(membreFamille)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="membreFamilles && membreFamilles.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

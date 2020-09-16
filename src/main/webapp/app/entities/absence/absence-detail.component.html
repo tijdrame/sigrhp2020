@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="absence">
+            <h2><span jhiTranslate="sigrhpApp.absence.detail.title">Absence</span> {{ absence.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.absence.dateAbsence">Date Absence</span></dt>
+                <dd>
+                    <span>{{ absence.dateAbsence }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.absence.collaborateur">Collaborateur</span></dt>
+                <dd>
+                    <div *ngIf="absence.collaborateur">
+                        <a [routerLink]="['/collaborateur', absence.collaborateur?.id, 'view']">{{ absence.collaborateur?.prenom }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.absence.motif">Motif</span></dt>
+                <dd>
+                    <div *ngIf="absence.motif">
+                        <a [routerLink]="['/motif', absence.motif?.id, 'view']">{{ absence.motif?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.absence.exercice">Exercice</span></dt>
+                <dd>
+                    <div *ngIf="absence.exercice">
+                        <a [routerLink]="['/exercice', absence.exercice?.id, 'view']">{{ absence.exercice?.debutExercice }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/absence', absence.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

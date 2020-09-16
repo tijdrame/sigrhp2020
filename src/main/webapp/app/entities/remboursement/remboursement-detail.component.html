@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="remboursement">
+            <h2><span jhiTranslate="sigrhpApp.remboursement.detail.title">Remboursement</span> {{ remboursement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.remboursement.dateRemboursement">Date Remboursement</span></dt>
+                <dd>
+                    <span>{{ remboursement.dateRemboursement }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.remboursement.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ remboursement.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.remboursement.isRembourse">Is Rembourse</span></dt>
+                <dd>
+                    <span>{{ remboursement.isRembourse }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.remboursement.detailPret">Detail Pret</span></dt>
+                <dd>
+                    <div *ngIf="remboursement.detailPret">
+                        <a [routerLink]="['/detail-pret', remboursement.detailPret?.id, 'view']">{{ remboursement.detailPret?.pret?.libelle }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/remboursement', remboursement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

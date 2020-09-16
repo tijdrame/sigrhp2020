@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "debutExercice",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "finExercice",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "actif",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20181228105644",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "exercice",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

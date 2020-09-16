@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fonction">
+            <h2><span jhiTranslate="sigrhpApp.fonction.detail.title">Fonction</span> {{ fonction.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.fonction.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ fonction.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.fonction.code">Code</span></dt>
+                <dd>
+                    <span>{{ fonction.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.fonction.structure">Structure</span></dt>
+                <dd>
+                    <div *ngIf="fonction.structure">
+                        <a [routerLink]="['/structure', fonction.structure?.id, 'view']">{{ fonction.structure?.denomination }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fonction', fonction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

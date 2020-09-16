@@ -1,0 +1,51 @@
+{
+    "sigrhpApp": {
+        "bulletin": {
+            "home": {
+                "title": "Liste Bulletins",
+                "createLabel": "Créer un nouveau Bulletin",
+                "createOrEditLabel": "Créer ou éditer un Bulletin"
+            },
+            "created": "Un nouveau Bulletin a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Bulletin avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Bulletin avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Bulletin {{ id }} ?"
+            },
+            "detail": {
+                "title": "Bulletin"
+            },
+            "retenueIpm": "Retenue Ipm",
+            "dateCreated": "Date création",
+            "ipm": "IPM",
+            "retenuePharmacie": "Retenue Pharmacie",
+            "autreRetenue": "Autre Retenue",
+            "brutFiscal": "Brut Fiscal",
+            "brutSocial": "Brut Social",
+            "salNet": "Salaire Net",
+            "netAPayer": "Net A Payer",
+            "salaireBrutMensuel": "Salaire Brut Mensuel",
+            "impotSurRevenu": "Impot Sur Revenu",
+            "trimf": "Trimf",
+            "ipresPartSalariale": "Ipres Part Salariale",
+            "totRetenue": "Tot Retenue",
+            "ipresPartPatronales": "Ipres Part Patronales",
+            "cssAccidentDeTravail": "Css Accident De Travail",
+            "cssPrestationFamiliale": "Css Prestation Familiale",
+            "ipmPatronale": "Ipm Patronale",
+            "contributionForfaitaire": "Contribution Forfaitaire",
+            "nbPart": "Nb Part",
+            "nbFemmes": "Nb Femmes",
+            "nbEnfants": "Nb Enfants",
+            "primeImposable": "Prime Imposable",
+            "primeNonImposable": "Prime Non Imposable",
+            "avantage": "Avantage",
+            "collaborateur": "Collaborateur",
+            "typePaiement": "Type Paiement",
+            "remboursements": "Remboursements",
+            "exercice": "Exercice",
+            "emploi": "Emploi",
+            "moisConcerne": "Mois Concerne"
+        }
+    }
+}

@@ -1,0 +1,203 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bulletin-heading" jhiTranslate="sigrhpApp.bulletin.home.createOrEditLabel">Create or edit a Bulletin</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.retenueIpm" for="field_retenueIpm">Retenue Ipm</label>
+                    <input type="number" class="form-control" name="retenueIpm" id="field_retenueIpm"
+                           formControlName="retenueIpm"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.retenuePharmacie" for="field_retenuePharmacie">Retenue Pharmacie</label>
+                    <input type="number" class="form-control" name="retenuePharmacie" id="field_retenuePharmacie"
+                           formControlName="retenuePharmacie"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.autreRetenue" for="field_autreRetenue">Autre Retenue</label>
+                    <input type="number" class="form-control" name="autreRetenue" id="field_autreRetenue"
+                           formControlName="autreRetenue"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.brutFiscal" for="field_brutFiscal">Brut Fiscal</label>
+                    <input type="number" class="form-control" name="brutFiscal" id="field_brutFiscal"
+                           formControlName="brutFiscal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.netAPayer" for="field_netAPayer">Net A Payer</label>
+                    <input type="number" class="form-control" name="netAPayer" id="field_netAPayer"
+                           formControlName="netAPayer"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.salaireBrutMensuel" for="field_salaireBrutMensuel">Salaire Brut Mensuel</label>
+                    <input type="number" class="form-control" name="salaireBrutMensuel" id="field_salaireBrutMensuel"
+                           formControlName="salaireBrutMensuel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.impotSurRevenu" for="field_impotSurRevenu">Impot Sur Revenu</label>
+                    <input type="number" class="form-control" name="impotSurRevenu" id="field_impotSurRevenu"
+                           formControlName="impotSurRevenu"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.trimf" for="field_trimf">Trimf</label>
+                    <input type="number" class="form-control" name="trimf" id="field_trimf"
+                           formControlName="trimf"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.ipresPartSalariale" for="field_ipresPartSalariale">Ipres Part Salariale</label>
+                    <input type="number" class="form-control" name="ipresPartSalariale" id="field_ipresPartSalariale"
+                           formControlName="ipresPartSalariale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.totRetenue" for="field_totRetenue">Tot Retenue</label>
+                    <input type="number" class="form-control" name="totRetenue" id="field_totRetenue"
+                           formControlName="totRetenue"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.ipresPartPatronales" for="field_ipresPartPatronales">Ipres Part Patronales</label>
+                    <input type="number" class="form-control" name="ipresPartPatronales" id="field_ipresPartPatronales"
+                           formControlName="ipresPartPatronales"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.cssAccidentDeTravail" for="field_cssAccidentDeTravail">Css Accident De Travail</label>
+                    <input type="number" class="form-control" name="cssAccidentDeTravail" id="field_cssAccidentDeTravail"
+                           formControlName="cssAccidentDeTravail"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.cssPrestationFamiliale" for="field_cssPrestationFamiliale">Css Prestation Familiale</label>
+                    <input type="number" class="form-control" name="cssPrestationFamiliale" id="field_cssPrestationFamiliale"
+                           formControlName="cssPrestationFamiliale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.ipmPatronale" for="field_ipmPatronale">Ipm Patronale</label>
+                    <input type="number" class="form-control" name="ipmPatronale" id="field_ipmPatronale"
+                           formControlName="ipmPatronale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.contributionForfaitaire" for="field_contributionForfaitaire">Contribution Forfaitaire</label>
+                    <input type="number" class="form-control" name="contributionForfaitaire" id="field_contributionForfaitaire"
+                           formControlName="contributionForfaitaire"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.nbPart" for="field_nbPart">Nb Part</label>
+                    <input type="number" class="form-control" name="nbPart" id="field_nbPart"
+                           formControlName="nbPart"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.nbFemmes" for="field_nbFemmes">Nb Femmes</label>
+                    <input type="number" class="form-control" name="nbFemmes" id="field_nbFemmes"
+                           formControlName="nbFemmes"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.nbEnfants" for="field_nbEnfants">Nb Enfants</label>
+                    <input type="number" class="form-control" name="nbEnfants" id="field_nbEnfants"
+                           formControlName="nbEnfants"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.primeImposable" for="field_primeImposable">Prime Imposable</label>
+                    <input type="number" class="form-control" name="primeImposable" id="field_primeImposable"
+                           formControlName="primeImposable"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.primeNonImposable" for="field_primeNonImposable">Prime Non Imposable</label>
+                    <input type="number" class="form-control" name="primeNonImposable" id="field_primeNonImposable"
+                           formControlName="primeNonImposable"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.avantage" for="field_avantage">Avantage</label>
+                    <input type="number" class="form-control" name="avantage" id="field_avantage"
+                           formControlName="avantage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.collaborateur" for="field_collaborateur">Collaborateur</label>
+                    <select class="form-control" id="field_collaborateur" name="collaborateur" formControlName="collaborateur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="collaborateurOption.id === editForm.get('collaborateur')!.value?.id ? editForm.get('collaborateur')!.value : collaborateurOption" *ngFor="let collaborateurOption of collaborateurs; trackBy: trackById">{{ collaborateurOption.prenom }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.typePaiement" for="field_typePaiement">Type Paiement</label>
+                    <select class="form-control" id="field_typePaiement" name="typePaiement" formControlName="typePaiement">
+                        <option *ngIf="!editForm.get('typePaiement')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="typePaiementOption.id === editForm.get('typePaiement')!.value?.id ? editForm.get('typePaiement')!.value : typePaiementOption" *ngFor="let typePaiementOption of typepaiements; trackBy: trackById">{{ typePaiementOption.libelle }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('typePaiement')!.invalid && (editForm.get('typePaiement')!.dirty || editForm.get('typePaiement')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('typePaiement')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="sigrhpApp.bulletin.remboursements" for="field_remboursements">Remboursements</label>
+                    <select class="form-control" id="field_remboursements" multiple name="remboursements" formControlName="remboursements">
+                        <option [ngValue]="getSelected(editForm.get('remboursements')!.value, remboursementOption)" *ngFor="let remboursementOption of remboursements; trackBy: trackById">{{ remboursementOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.exercice" for="field_exercice">Exercice</label>
+                    <select class="form-control" id="field_exercice" name="exercice" formControlName="exercice">
+                        <option *ngIf="!editForm.get('exercice')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="exerciceOption.id === editForm.get('exercice')!.value?.id ? editForm.get('exercice')!.value : exerciceOption" *ngFor="let exerciceOption of exercices; trackBy: trackById">{{ exerciceOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('exercice')!.invalid && (editForm.get('exercice')!.dirty || editForm.get('exercice')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('exercice')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.bulletin.moisConcerne" for="field_moisConcerne">Mois Concerne</label>
+                    <select class="form-control" id="field_moisConcerne" name="moisConcerne" formControlName="moisConcerne">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="moisConcerneOption.id === editForm.get('moisConcerne')!.value?.id ? editForm.get('moisConcerne')!.value : moisConcerneOption" *ngFor="let moisConcerneOption of moisconcernes; trackBy: trackById">{{ moisConcerneOption.libelle }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

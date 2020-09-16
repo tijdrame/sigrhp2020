@@ -1,0 +1,302 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-collaborateur-heading" jhiTranslate="sigrhpApp.collaborateur.home.createOrEditLabel">Create or edit a Collaborateur</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                    <div *ngIf="editForm.get('prenom')!.invalid && (editForm.get('prenom')!.dirty || editForm.get('prenom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prenom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                    <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.matricule" for="field_matricule">Matricule</label>
+                    <input type="text" class="form-control" name="matricule" id="field_matricule"
+                           formControlName="matricule"/>
+                    <div *ngIf="editForm.get('matricule')!.invalid && (editForm.get('matricule')!.dirty || editForm.get('matricule')!.touched)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.adresse" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                           formControlName="adresse"/>
+                    <div *ngIf="editForm.get('adresse')!.invalid && (editForm.get('adresse')!.dirty || editForm.get('adresse')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('adresse')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.tauxHoraire" for="field_tauxHoraire">Taux Horaire</label>
+                    <input type="number" class="form-control" name="tauxHoraire" id="field_tauxHoraire"
+                           formControlName="tauxHoraire"/>
+                    <div *ngIf="editForm.get('tauxHoraire')!.invalid && (editForm.get('tauxHoraire')!.dirty || editForm.get('tauxHoraire')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxHoraire')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tauxHoraire')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.salaireDeBase" for="field_salaireDeBase">Salaire De Base</label>
+                    <input type="number" class="form-control" name="salaireDeBase" id="field_salaireDeBase"
+                           formControlName="salaireDeBase"/>
+                    <div *ngIf="editForm.get('salaireDeBase')!.invalid && (editForm.get('salaireDeBase')!.dirty || editForm.get('salaireDeBase')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('salaireDeBase')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('salaireDeBase')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.surSalaire" for="field_surSalaire">Sur Salaire</label>
+                    <input type="number" class="form-control" name="surSalaire" id="field_surSalaire"
+                           formControlName="surSalaire"/>
+                    <div *ngIf="editForm.get('surSalaire')!.invalid && (editForm.get('surSalaire')!.dirty || editForm.get('surSalaire')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('surSalaire')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('surSalaire')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.retenueRepas" for="field_retenueRepas">Retenue Repas</label>
+                    <input type="number" class="form-control" name="retenueRepas" id="field_retenueRepas"
+                           formControlName="retenueRepas"/>
+                    <div *ngIf="editForm.get('retenueRepas')!.invalid && (editForm.get('retenueRepas')!.dirty || editForm.get('retenueRepas')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('retenueRepas')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('retenueRepas')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.dateNaissance" for="field_dateNaissance">Date Naissance</label>
+                    <div class="input-group">
+                        <input id="field_dateNaissance" type="text" class="form-control" name="dateNaissance" ngbDatepicker #dateNaissanceDp="ngbDatepicker" formControlName="dateNaissance"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateNaissanceDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateNaissance')!.invalid && (editForm.get('dateNaissance')!.dirty || editForm.get('dateNaissance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateNaissance')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.photo" for="field_photo">Photo</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('photoContentType')!.value + ';base64,' + editForm.get('photo')!.value" style="max-height: 100px;" *ngIf="editForm.get('photo')!.value" alt="collaborateur image"/>
+                        <div *ngIf="editForm.get('photo')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('photoContentType')!.value }}, {{ byteSize(editForm.get('photo')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('photo', 'photoContentType', 'file_photo')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_photo" (change)="setFileData($event, 'photo', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="photo" id="field_photo"
+                           formControlName="photo"/>
+                    <input type="hidden" class="form-control" name="photoContentType" id="field_photoContentType"
+                           formControlName="photoContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.login" for="field_login">Login</label>
+                    <input type="text" class="form-control" name="login" id="field_login"
+                           formControlName="login"/>
+                    <div *ngIf="editForm.get('login')!.invalid && (editForm.get('login')!.dirty || editForm.get('login')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('login')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                    <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.primeTransport" for="field_primeTransport">Prime Transport</label>
+                    <input type="number" class="form-control" name="primeTransport" id="field_primeTransport"
+                           formControlName="primeTransport"/>
+                    <div *ngIf="editForm.get('primeTransport')!.invalid && (editForm.get('primeTransport')!.dirty || editForm.get('primeTransport')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('primeTransport')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('primeTransport')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.telephone" for="field_telephone">Telephone</label>
+                    <input type="text" class="form-control" name="telephone" id="field_telephone"
+                           formControlName="telephone"/>
+                    <div *ngIf="editForm.get('telephone')!.invalid && (editForm.get('telephone')!.dirty || editForm.get('telephone')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('telephone')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.numeroRib" for="field_numeroRib">Numero Rib</label>
+                    <input type="text" class="form-control" name="numeroRib" id="field_numeroRib"
+                           formControlName="numeroRib"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.fonction" for="field_fonction">Fonction</label>
+                    <select class="form-control" id="field_fonction" name="fonction" formControlName="fonction">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="fonctionOption.id === editForm.get('fonction')!.value?.id ? editForm.get('fonction')!.value : fonctionOption" *ngFor="let fonctionOption of fonctions; trackBy: trackById">{{ fonctionOption.libelle }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.categorie" for="field_categorie">Categorie</label>
+                    <select class="form-control" id="field_categorie" name="categorie" formControlName="categorie">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categorieOption.id === editForm.get('categorie')!.value?.id ? editForm.get('categorie')!.value : categorieOption" *ngFor="let categorieOption of categories; trackBy: trackById">{{ categorieOption.libelle }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.nationalite" for="field_nationalite">Nationalite</label>
+                    <select class="form-control" id="field_nationalite" name="nationalite" formControlName="nationalite">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="nationaliteOption.id === editForm.get('nationalite')!.value?.id ? editForm.get('nationalite')!.value : nationaliteOption" *ngFor="let nationaliteOption of nationalites; trackBy: trackById">{{ nationaliteOption.libelle }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.statut" for="field_statut">Statut</label>
+                    <select class="form-control" id="field_statut" name="statut" formControlName="statut">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statutOption.id === editForm.get('statut')!.value?.id ? editForm.get('statut')!.value : statutOption" *ngFor="let statutOption of statuts; trackBy: trackById">{{ statutOption.libelle }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.situationMatrimoniale" for="field_situationMatrimoniale">Situation Matrimoniale</label>
+                    <select class="form-control" id="field_situationMatrimoniale" name="situationMatrimoniale" formControlName="situationMatrimoniale">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="situationMatrimonialeOption.id === editForm.get('situationMatrimoniale')!.value?.id ? editForm.get('situationMatrimoniale')!.value : situationMatrimonialeOption" *ngFor="let situationMatrimonialeOption of situationmatrimoniales; trackBy: trackById">{{ situationMatrimonialeOption.libelle }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.typeContrat" for="field_typeContrat">Type Contrat</label>
+                    <select class="form-control" id="field_typeContrat" name="typeContrat" formControlName="typeContrat">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeContratOption.id === editForm.get('typeContrat')!.value?.id ? editForm.get('typeContrat')!.value : typeContratOption" *ngFor="let typeContratOption of typecontrats; trackBy: trackById">{{ typeContratOption.libelle }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.regime" for="field_regime">Regime</label>
+                    <select class="form-control" id="field_regime" name="regime" formControlName="regime">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="regimeOption.id === editForm.get('regime')!.value?.id ? editForm.get('regime')!.value : regimeOption" *ngFor="let regimeOption of regimes; trackBy: trackById">{{ regimeOption.libelle }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.userCollab" for="field_userCollab">User Collab</label>
+                    <select class="form-control" id="field_userCollab" name="userCollab" formControlName="userCollab">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('userCollab')!.value?.id ? editForm.get('userCollab')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.sexe" for="field_sexe">Sexe</label>
+                    <select class="form-control" id="field_sexe" name="sexe" formControlName="sexe">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sexeOption.id === editForm.get('sexe')!.value?.id ? editForm.get('sexe')!.value : sexeOption" *ngFor="let sexeOption of sexes; trackBy: trackById">{{ sexeOption.libelle }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.collaborateur.structure" for="field_structure">Structure</label>
+                    <select class="form-control" id="field_structure" name="structure" formControlName="structure">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="structureOption.id === editForm.get('structure')!.value?.id ? editForm.get('structure')!.value : structureOption" *ngFor="let structureOption of structures; trackBy: trackById">{{ structureOption.denomination }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

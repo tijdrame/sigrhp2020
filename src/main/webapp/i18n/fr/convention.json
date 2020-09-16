@@ -1,0 +1,22 @@
+{
+    "sigrhpApp": {
+        "convention": {
+            "home": {
+                "title": "Conventions",
+                "createLabel": "Créer une  Convention",
+                "createOrEditLabel": "Créer ou éditer une Convention"
+            },
+            "created": "Une Convention a été créé avec l'identifiant {{ param }}",
+            "updated": "La Convention avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Convention avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la Convention {{ id }} ?"
+            },
+            "detail": {
+                "title": "Convention"
+            },
+            "libelle": "Libelle",
+            "code": "Code"
+        }
+    }
+}

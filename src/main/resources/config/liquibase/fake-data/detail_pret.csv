@@ -1,0 +1,11 @@
+id;montant;is_rembourse;collaborateur_id;pret_id
+1;4772;false;1;1
+2;40117;false;2;2
+3;7714;true;3;3
+4;46941;true;4;4
+5;52105;false;5;5
+6;39772;true;6;6
+7;62022;true;7;7
+8;67518;false;8;8
+9;19453;false;9;9
+10;70238;false;10;10

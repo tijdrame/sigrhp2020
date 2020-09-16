@@ -1,0 +1,107 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigrhpApp.recap.home.title">Recaps</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-recap" [routerLink]="['/recap/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sigrhpApp.recap.home.createLabel">
+            Create a new Recap
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="recaps?.length === 0">
+        <span jhiTranslate="sigrhpApp.recap.home.notFound">No recaps found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="recaps && recaps.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="brutFiscal"><span jhiTranslate="sigrhpApp.recap.brutFiscal">Brut Fiscal</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="netAPayer"><span jhiTranslate="sigrhpApp.recap.netAPayer">Net A Payer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="salaireBrutMensuel"><span jhiTranslate="sigrhpApp.recap.salaireBrutMensuel">Salaire Brut Mensuel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="impotSurRevenu"><span jhiTranslate="sigrhpApp.recap.impotSurRevenu">Impot Sur Revenu</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="trimf"><span jhiTranslate="sigrhpApp.recap.trimf">Trimf</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ipresPartSalariale"><span jhiTranslate="sigrhpApp.recap.ipresPartSalariale">Ipres Part Salariale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totRetenue"><span jhiTranslate="sigrhpApp.recap.totRetenue">Tot Retenue</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ipresPartPatronales"><span jhiTranslate="sigrhpApp.recap.ipresPartPatronales">Ipres Part Patronales</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cssAccidentDeTravail"><span jhiTranslate="sigrhpApp.recap.cssAccidentDeTravail">Css Accident De Travail</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cssPrestationFamiliale"><span jhiTranslate="sigrhpApp.recap.cssPrestationFamiliale">Css Prestation Familiale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ipmPatronale"><span jhiTranslate="sigrhpApp.recap.ipmPatronale">Ipm Patronale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contributionForfaitaire"><span jhiTranslate="sigrhpApp.recap.contributionForfaitaire">Contribution Forfaitaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="primeImposable"><span jhiTranslate="sigrhpApp.recap.primeImposable">Prime Imposable</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="primeNonImposable"><span jhiTranslate="sigrhpApp.recap.primeNonImposable">Prime Non Imposable</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="avantage"><span jhiTranslate="sigrhpApp.recap.avantage">Avantage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="recapLigne"><span jhiTranslate="sigrhpApp.recap.recapLigne">Recap Ligne</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="collaborateur.prenom"><span jhiTranslate="sigrhpApp.recap.collaborateur">Collaborateur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let recap of recaps ;trackBy: trackId">
+                    <td><a [routerLink]="['/recap', recap.id, 'view']">{{ recap.id }}</a></td>
+                    <td>{{ recap.brutFiscal }}</td>
+                    <td>{{ recap.netAPayer }}</td>
+                    <td>{{ recap.salaireBrutMensuel }}</td>
+                    <td>{{ recap.impotSurRevenu }}</td>
+                    <td>{{ recap.trimf }}</td>
+                    <td>{{ recap.ipresPartSalariale }}</td>
+                    <td>{{ recap.totRetenue }}</td>
+                    <td>{{ recap.ipresPartPatronales }}</td>
+                    <td>{{ recap.cssAccidentDeTravail }}</td>
+                    <td>{{ recap.cssPrestationFamiliale }}</td>
+                    <td>{{ recap.ipmPatronale }}</td>
+                    <td>{{ recap.contributionForfaitaire }}</td>
+                    <td>{{ recap.primeImposable }}</td>
+                    <td>{{ recap.primeNonImposable }}</td>
+                    <td>{{ recap.avantage }}</td>
+                    <td>{{ recap.recapLigne }}</td>
+                    <td>
+                        <div *ngIf="recap.collaborateur">
+                            <a [routerLink]="['/collaborateur', recap.collaborateur?.id, 'view']" >{{ recap.collaborateur?.prenom }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/recap', recap.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/recap', recap.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(recap)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="recaps && recaps.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

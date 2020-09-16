@@ -1,0 +1,85 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "collaborateur",
+            "otherEntityName": "collaborateur",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "prenom"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "brutFiscal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "netAPayer",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "salaireBrutMensuel",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "impotSurRevenu",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "trimf",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ipresPartSalariale",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totRetenue",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ipresPartPatronales",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cssAccidentDeTravail",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cssPrestationFamiliale",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ipmPatronale",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "contributionForfaitaire",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "primeImposable",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "primeNonImposable",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "avantage",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "recapLigne",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20190111160319",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "recap",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

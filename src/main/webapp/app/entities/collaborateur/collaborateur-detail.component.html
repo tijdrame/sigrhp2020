@@ -1,0 +1,149 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="collaborateur">
+            <h2><span jhiTranslate="sigrhpApp.collaborateur.detail.title">Collaborateur</span> {{ collaborateur.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ collaborateur.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ collaborateur.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ collaborateur.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ collaborateur.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.tauxHoraire">Taux Horaire</span></dt>
+                <dd>
+                    <span>{{ collaborateur.tauxHoraire }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.salaireDeBase">Salaire De Base</span></dt>
+                <dd>
+                    <span>{{ collaborateur.salaireDeBase }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.surSalaire">Sur Salaire</span></dt>
+                <dd>
+                    <span>{{ collaborateur.surSalaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.retenueRepas">Retenue Repas</span></dt>
+                <dd>
+                    <span>{{ collaborateur.retenueRepas }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.dateNaissance">Date Naissance</span></dt>
+                <dd>
+                    <span>{{ collaborateur.dateNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.photo">Photo</span></dt>
+                <dd>
+                    <div *ngIf="collaborateur.photo">
+                        <a (click)="openFile(collaborateur.photoContentType, collaborateur.photo)">
+                            <img [src]="'data:' + collaborateur.photoContentType + ';base64,' + collaborateur.photo" style="max-width: 100%;" alt="collaborateur image"/>
+                        </a>
+                        {{ collaborateur.photoContentType }}, {{ byteSize(collaborateur.photo) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.login">Login</span></dt>
+                <dd>
+                    <span>{{ collaborateur.login }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.email">Email</span></dt>
+                <dd>
+                    <span>{{ collaborateur.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.primeTransport">Prime Transport</span></dt>
+                <dd>
+                    <span>{{ collaborateur.primeTransport }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ collaborateur.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.numeroRib">Numero Rib</span></dt>
+                <dd>
+                    <span>{{ collaborateur.numeroRib }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.fonction">Fonction</span></dt>
+                <dd>
+                    <div *ngIf="collaborateur.fonction">
+                        <a [routerLink]="['/fonction', collaborateur.fonction?.id, 'view']">{{ collaborateur.fonction?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.categorie">Categorie</span></dt>
+                <dd>
+                    <div *ngIf="collaborateur.categorie">
+                        <a [routerLink]="['/categorie', collaborateur.categorie?.id, 'view']">{{ collaborateur.categorie?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.nationalite">Nationalite</span></dt>
+                <dd>
+                    <div *ngIf="collaborateur.nationalite">
+                        <a [routerLink]="['/nationalite', collaborateur.nationalite?.id, 'view']">{{ collaborateur.nationalite?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.statut">Statut</span></dt>
+                <dd>
+                    <div *ngIf="collaborateur.statut">
+                        <a [routerLink]="['/statut', collaborateur.statut?.id, 'view']">{{ collaborateur.statut?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.situationMatrimoniale">Situation Matrimoniale</span></dt>
+                <dd>
+                    <div *ngIf="collaborateur.situationMatrimoniale">
+                        <a [routerLink]="['/situation-matrimoniale', collaborateur.situationMatrimoniale?.id, 'view']">{{ collaborateur.situationMatrimoniale?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.typeContrat">Type Contrat</span></dt>
+                <dd>
+                    <div *ngIf="collaborateur.typeContrat">
+                        <a [routerLink]="['/type-contrat', collaborateur.typeContrat?.id, 'view']">{{ collaborateur.typeContrat?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.regime">Regime</span></dt>
+                <dd>
+                    <div *ngIf="collaborateur.regime">
+                        <a [routerLink]="['/regime', collaborateur.regime?.id, 'view']">{{ collaborateur.regime?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.userCollab">User Collab</span></dt>
+                <dd>
+                    {{ collaborateur.userCollab?.login }}
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.sexe">Sexe</span></dt>
+                <dd>
+                    <div *ngIf="collaborateur.sexe">
+                        <a [routerLink]="['/sexe', collaborateur.sexe?.id, 'view']">{{ collaborateur.sexe?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.collaborateur.structure">Structure</span></dt>
+                <dd>
+                    <div *ngIf="collaborateur.structure">
+                        <a [routerLink]="['/structure', collaborateur.structure?.id, 'view']">{{ collaborateur.structure?.denomination }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/collaborateur', collaborateur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

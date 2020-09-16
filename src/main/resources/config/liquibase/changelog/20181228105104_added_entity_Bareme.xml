@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity Bareme.
+    -->
+    <changeSet id="20181228105104-1" author="jhipster">
+        <createTable tableName="bareme">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="revenu_brut" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="trim_f" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="une_part" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="une_part_et_demi" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="deux_parts" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="deux_parts_et_demi" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="trois_parts" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="trois_parts_et_demi" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="quatre_parts" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="quatre_parts_et_demi" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="cinq_parts" type="double">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20181228105104-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20181228105104-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/bareme.csv"
+                  separator=";"
+                  tableName="bareme">
+            <column name="id" type="numeric"/>
+            <column name="revenu_brut" type="numeric"/>
+            <column name="trim_f" type="numeric"/>
+            <column name="une_part" type="numeric"/>
+            <column name="une_part_et_demi" type="numeric"/>
+            <column name="deux_parts" type="numeric"/>
+            <column name="deux_parts_et_demi" type="numeric"/>
+            <column name="trois_parts" type="numeric"/>
+            <column name="trois_parts_et_demi" type="numeric"/>
+            <column name="quatre_parts" type="numeric"/>
+            <column name="quatre_parts_et_demi" type="numeric"/>
+            <column name="cinq_parts" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <!--
+        Added the entity Bulletin.
+    -->
+    <changeSet id="20190110175942-1" author="jhipster">
+        <createTable tableName="bulletin">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="retenue_ipm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="retenue_pharmacie" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="autre_retenue" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="brut_fiscal" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="net_a_payer" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="salaire_brut_mensuel" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="impot_sur_revenu" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="trimf" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="ipres_part_salariale" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="tot_retenue" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="ipres_part_patronales" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="css_accident_de_travail" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="css_prestation_familiale" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="ipm_patronale" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="contribution_forfaitaire" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="nb_part" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="nb_femmes" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="nb_enfants" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="prime_imposable" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="prime_non_imposable" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="avantage" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="collaborateur_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="type_paiement_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="exercice_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="mois_concerne_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20190110175942-1-relations" author="jhipster">
+
+        <createTable tableName="bulletin_remboursements">
+            <column name="remboursements_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bulletin_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="bulletin_id, remboursements_id" tableName="bulletin_remboursements"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20190110175942-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/bulletin.csv"
+                  separator=";"
+                  tableName="bulletin">
+            <column name="id" type="numeric"/>
+            <column name="retenue_ipm" type="numeric"/>
+            <column name="retenue_pharmacie" type="numeric"/>
+            <column name="autre_retenue" type="numeric"/>
+            <column name="brut_fiscal" type="numeric"/>
+            <column name="net_a_payer" type="numeric"/>
+            <column name="salaire_brut_mensuel" type="numeric"/>
+            <column name="impot_sur_revenu" type="numeric"/>
+            <column name="trimf" type="numeric"/>
+            <column name="ipres_part_salariale" type="numeric"/>
+            <column name="tot_retenue" type="numeric"/>
+            <column name="ipres_part_patronales" type="numeric"/>
+            <column name="css_accident_de_travail" type="numeric"/>
+            <column name="css_prestation_familiale" type="numeric"/>
+            <column name="ipm_patronale" type="numeric"/>
+            <column name="contribution_forfaitaire" type="numeric"/>
+            <column name="nb_part" type="numeric"/>
+            <column name="nb_femmes" type="numeric"/>
+            <column name="nb_enfants" type="numeric"/>
+            <column name="prime_imposable" type="numeric"/>
+            <column name="prime_non_imposable" type="numeric"/>
+            <column name="avantage" type="numeric"/>
+            <column name="type_paiement_id" type="numeric"/>
+            <column name="exercice_id" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

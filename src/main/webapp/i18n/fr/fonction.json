@@ -1,0 +1,23 @@
+{
+    "sigrhpApp": {
+        "fonction": {
+            "home": {
+                "title": "Liste Fonctions",
+                "createLabel": "Créer une Fonction",
+                "createOrEditLabel": "Créer ou éditer une Fonction"
+            },
+            "created": "Une nouvelle Fonction a été créé avec l'identifiant {{ param }}",
+            "updated": "La Fonction avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Fonction avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la Fonction {{ id }} ?"
+            },
+            "detail": {
+                "title": "Fonction"
+            },
+            "libelle": "Libelle",
+            "code": "Code",
+            "structure": "Structure"
+        }
+    }
+}

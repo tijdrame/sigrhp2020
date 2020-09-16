@@ -1,0 +1,24 @@
+{
+    "sigrhpApp": {
+        "situationMatrimoniale": {
+            "home": {
+                "title": "Liste Situations Matrimoniales",
+                "createLabel": "Créer Situation Matrimoniale",
+                "createOrEditLabel": "Créer ou éditer une Situation Matrimoniale"
+            },
+            "created": "Une nouvelle Situation Matrimoniale a été créé avec l'identifiant {{ param }}",
+            "updated": "La Situation Matrimoniale avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Situation Matrimoniale avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la Situation Matrimoniale {{ id }} ?"
+            },
+            "detail": {
+                "title": "Situation Matrimoniale"
+            },
+            "libelle": "Libelle",
+            "code": "Code",
+            "nbParts": "Nb Parts",
+            "structure": "Structure"
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typePaiement">
+            <h2><span jhiTranslate="sigrhpApp.typePaiement.detail.title">Type Paiement</span> {{ typePaiement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.typePaiement.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ typePaiement.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.typePaiement.code">Code</span></dt>
+                <dd>
+                    <span>{{ typePaiement.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.typePaiement.structure">Structure</span></dt>
+                <dd>
+                    <div *ngIf="typePaiement.structure">
+                        <a [routerLink]="['/structure', typePaiement.structure?.id, 'view']">{{ typePaiement.structure?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-paiement', typePaiement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

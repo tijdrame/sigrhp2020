@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.emard.sigrhp",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.9.1",
+    "applicationType": "monolith",
+    "baseName": "SIGRHP",
+    "packageName": "com.emard.sigrhp",
+    "packageFolder": "com/emard/sigrhp",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MTZmODdiMTk0ZTI2MTBjNWEwYWE4OGIxYjBhMDIxNWE3ZGVkMmIzMWQwZGMyMDAzNTFiOWU1YTM2YTI0MmI5YzZmMWM0Yjk1ZDNhMTllNDk3MzMyMjU0YTQyYjU2OTA2MjBlY2FkNjFiZDZmYTYyNTU4ZmIzMTMxYmEzMDk0YWU=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1600167603824,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": ["fr", "en"],
+    "blueprints": []
+  }
+}

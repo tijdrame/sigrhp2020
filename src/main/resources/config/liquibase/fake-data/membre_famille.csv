@@ -1,0 +1,11 @@
+id;prenom;nom;adresse;telephone;date_naissance;date_mariage;photo;photo_content_type;is_actif;collaborateur_id;sexe_id;type_relation_id
+1;optical;transmit;Clothing Port calculate;351-478-7170 x6778;2019-01-09;2019-01-08;../fake-data/blob/hipster.png;image/png;true;1;1;1
+2;initiatives;copy web-readiness;Tasty RAM;1-397-798-7389 x6682;2019-01-09;2019-01-09;../fake-data/blob/hipster.png;image/png;true;2;2;2
+3;hacking;parse;open-source;422-079-8213 x1016;2019-01-09;2019-01-09;../fake-data/blob/hipster.png;image/png;true;3;3;3
+4;Expanded IB;Pants multi-byte;Mississippi invoice;398-398-8038;2019-01-09;2019-01-09;../fake-data/blob/hipster.png;image/png;true;4;4;4
+5;extend calculating core;Data Officer Soft;reinvent web-enabled tan;030-953-1210 x9712;2019-01-09;2019-01-09;../fake-data/blob/hipster.png;image/png;true;5;5;5
+6;GB dynamic;heuristic;cultivate wireless;1-644-837-7593 x51642;2019-01-09;2019-01-09;../fake-data/blob/hipster.png;image/png;false;6;6;6
+7;Paradigm synthesize;Unbranded Fresh Keyboard Investor Infrastructure;Home Loan Account;(237) 681-4720;2019-01-09;2019-01-08;../fake-data/blob/hipster.png;image/png;false;7;7;7
+8;recontextualize;Awesome;platforms;212-418-2387 x9142;2019-01-09;2019-01-09;../fake-data/blob/hipster.png;image/png;true;8;8;8
+9;Home deposit Handmade;Colorado;card Human plum;095-431-6091;2019-01-08;2019-01-08;../fake-data/blob/hipster.png;image/png;true;9;9;9
+10;Group reboot Malaysia;innovative SDD;Arkansas Configuration Future;1-356-610-5047 x189;2019-01-09;2019-01-09;../fake-data/blob/hipster.png;image/png;true;10;10;10

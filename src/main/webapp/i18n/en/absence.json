@@ -1,0 +1,25 @@
+{
+    "sigrhpApp": {
+        "absence": {
+            "home": {
+                "title": "Absences",
+                "critere": "Critéres de recherche",
+                "createLabel": "Create a new Absence",
+                "createOrEditLabel": "Create or edit a Absence"
+            },
+            "created": "A new Absence is created with identifier {{ param }}",
+            "updated": "A Absence is updated with identifier {{ param }}",
+            "deleted": "A Absence is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Absence {{ id }}?"
+            },
+            "detail": {
+                "title": "Absence"
+            },
+            "dateAbsence": "Date Absence",
+            "collaborateur": "Collaborateur",
+            "motif": "Motif",
+            "exercice": "Exercice"
+        }
+    }
+}

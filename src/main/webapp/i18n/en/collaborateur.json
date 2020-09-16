@@ -1,0 +1,48 @@
+{
+    "sigrhpApp": {
+        "collaborateur": {
+            "home": {
+                "title": "Collaborateurs",
+                "createLabel": "Create a new Collaborateur",
+                "createOrEditLabel": "Create or edit a Collaborateur"
+            },
+            "created": "A new Collaborateur is created with identifier {{ param }}",
+            "updated": "A Collaborateur is updated with identifier {{ param }}",
+            "deleted": "A Collaborateur is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Collaborateur {{ id }}?"
+            },
+            "detail": {
+                "title": "Collaborateur"
+            },
+            "prenom": "Prenom",
+            "primeImpo": "Prime Imposable",
+            "NbParts": "Nb Part(s)",
+            "NbEnf": "Nb Enfant(s)",
+            "nom": "Nom",
+            "matricule": "Matricule",
+            "adresse": "Adresse",
+            "tauxHoraire": "Taux Horaire",
+            "salaireDeBase": "Salaire De Base",
+            "surSalaire": "Sur Salaire",
+            "retenueRepas": "Retenue Repas",
+            "dateNaissance": "Date Naissance",
+            "photo": "Photo",
+            "login": "Login",
+            "email": "Email",
+            "primeTransport": "Prime Transport",
+            "telephone": "Telephone",
+            "numeroRib": "Numero Rib",
+            "fonction": "Fonction",
+            "categorie": "Categorie",
+            "nationalite": "Nationalite",
+            "statut": "Statut",
+            "situationMatrimoniale": "Situation Matrimoniale",
+            "typeContrat": "Type Contrat",
+            "regime": "Regime",
+            "userCollab": "User Collab",
+            "sexe": "Sexe",
+            "structure": "Structure"
+        }
+    }
+}

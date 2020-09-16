@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="membreFamille">
+            <h2><span jhiTranslate="sigrhpApp.membreFamille.detail.title">Membre Famille</span> {{ membreFamille.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ membreFamille.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ membreFamille.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ membreFamille.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ membreFamille.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.dateNaissance">Date Naissance</span></dt>
+                <dd>
+                    <span>{{ membreFamille.dateNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.dateMariage">Date Mariage</span></dt>
+                <dd>
+                    <span>{{ membreFamille.dateMariage }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.photo">Photo</span></dt>
+                <dd>
+                    <div *ngIf="membreFamille.photo">
+                        <a (click)="openFile(membreFamille.photoContentType, membreFamille.photo)">
+                            <img [src]="'data:' + membreFamille.photoContentType + ';base64,' + membreFamille.photo" style="max-width: 100%;" alt="membreFamille image"/>
+                        </a>
+                        {{ membreFamille.photoContentType }}, {{ byteSize(membreFamille.photo) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.isActif">Is Actif</span></dt>
+                <dd>
+                    <span>{{ membreFamille.isActif }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.collaborateur">Collaborateur</span></dt>
+                <dd>
+                    <div *ngIf="membreFamille.collaborateur">
+                        <a [routerLink]="['/collaborateur', membreFamille.collaborateur?.id, 'view']">{{ membreFamille.collaborateur?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.sexe">Sexe</span></dt>
+                <dd>
+                    <div *ngIf="membreFamille.sexe">
+                        <a [routerLink]="['/sexe', membreFamille.sexe?.id, 'view']">{{ membreFamille.sexe?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.membreFamille.typeRelation">Type Relation</span></dt>
+                <dd>
+                    <div *ngIf="membreFamille.typeRelation">
+                        <a [routerLink]="['/type-relation', membreFamille.typeRelation?.id, 'view']">{{ membreFamille.typeRelation?.libelle }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/membre-famille', membreFamille.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

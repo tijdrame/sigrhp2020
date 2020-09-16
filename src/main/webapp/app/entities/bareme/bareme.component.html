@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigrhpApp.bareme.home.title">Baremes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bareme" [routerLink]="['/bareme/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sigrhpApp.bareme.home.createLabel">
+            Create a new Bareme
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="baremes?.length === 0">
+        <span jhiTranslate="sigrhpApp.moisConcerne.home.notFound">No baremes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="baremes && baremes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="revenuBrut"><span jhiTranslate="sigrhpApp.bareme.revenuBrut">Revenu Brut</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="trimF"><span jhiTranslate="sigrhpApp.bareme.trimF">Trim F</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unePart"><span jhiTranslate="sigrhpApp.bareme.unePart">Une Part</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unePartEtDemi"><span jhiTranslate="sigrhpApp.bareme.unePartEtDemi">Une Part Et Demi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deuxParts"><span jhiTranslate="sigrhpApp.bareme.deuxParts">Deux Parts</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deuxPartsEtDemi"><span jhiTranslate="sigrhpApp.bareme.deuxPartsEtDemi">Deux Parts Et Demi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="troisParts"><span jhiTranslate="sigrhpApp.bareme.troisParts">Trois Parts</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="troisPartsEtDemi"><span jhiTranslate="sigrhpApp.bareme.troisPartsEtDemi">Trois Parts Et Demi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quatreParts"><span jhiTranslate="sigrhpApp.bareme.quatreParts">Quatre Parts</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quatrePartsEtDemi"><span jhiTranslate="sigrhpApp.bareme.quatrePartsEtDemi">Quatre Parts Et Demi</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cinqParts"><span jhiTranslate="sigrhpApp.bareme.cinqParts">Cinq Parts</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bareme of baremes ;trackBy: trackId">
+                    <td><a [routerLink]="['/bareme', bareme.id, 'view']">{{ bareme.id }}</a></td>
+                    <td>{{ bareme.revenuBrut }}</td>
+                    <td>{{ bareme.trimF }}</td>
+                    <td>{{ bareme.unePart }}</td>
+                    <td>{{ bareme.unePartEtDemi }}</td>
+                    <td>{{ bareme.deuxParts }}</td>
+                    <td>{{ bareme.deuxPartsEtDemi }}</td>
+                    <td>{{ bareme.troisParts }}</td>
+                    <td>{{ bareme.troisPartsEtDemi }}</td>
+                    <td>{{ bareme.quatreParts }}</td>
+                    <td>{{ bareme.quatrePartsEtDemi }}</td>
+                    <td>{{ bareme.cinqParts }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bareme', bareme.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bareme', bareme.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bareme)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="baremes && baremes.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

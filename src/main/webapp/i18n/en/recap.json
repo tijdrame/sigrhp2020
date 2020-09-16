@@ -1,0 +1,37 @@
+{
+    "sigrhpApp": {
+        "recap": {
+            "home": {
+                "title": "Recaps",
+                "createLabel": "Create a new Recap",
+                "createOrEditLabel": "Create or edit a Recap"
+            },
+            "created": "A new Recap is created with identifier {{ param }}",
+            "updated": "A Recap is updated with identifier {{ param }}",
+            "deleted": "A Recap is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Recap {{ id }}?"
+            },
+            "detail": {
+                "title": "Recap"
+            },
+            "brutFiscal": "Brut Fiscal",
+            "netAPayer": "Net A Payer",
+            "salaireBrutMensuel": "Salaire Brut Mensuel",
+            "impotSurRevenu": "Impot Sur Revenu",
+            "trimf": "Trimf",
+            "ipresPartSalariale": "Ipres Part Salariale",
+            "totRetenue": "Tot Retenue",
+            "ipresPartPatronales": "Ipres Part Patronales",
+            "cssAccidentDeTravail": "Css Accident De Travail",
+            "cssPrestationFamiliale": "Css Prestation Familiale",
+            "ipmPatronale": "Ipm Patronale",
+            "contributionForfaitaire": "Contribution Forfaitaire",
+            "primeImposable": "Prime Imposable",
+            "primeNonImposable": "Prime Non Imposable",
+            "avantage": "Avantage",
+            "recapLigne": "Recap Ligne",
+            "collaborateur": "Collaborateur"
+        }
+    }
+}

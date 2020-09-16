@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-demande-conge-heading" jhiTranslate="sigrhpApp.demandeConge.home.createOrEditLabel">Create or edit a Demande Conge</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.demandeConge.dateDebut" for="field_dateDebut">Date Debut</label>
+                    <div class="input-group">
+                        <input id="field_dateDebut" type="text" class="form-control" name="dateDebut" ngbDatepicker #dateDebutDp="ngbDatepicker" formControlName="dateDebut"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDebutDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateDebut')!.invalid && (editForm.get('dateDebut')!.dirty || editForm.get('dateDebut')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateDebut')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.demandeConge.dateFin" for="field_dateFin">Date Fin</label>
+                    <div class="input-group">
+                        <input id="field_dateFin" type="text" class="form-control" name="dateFin" ngbDatepicker #dateFinDp="ngbDatepicker" formControlName="dateFin"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateFinDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateFin')!.invalid && (editForm.get('dateFin')!.dirty || editForm.get('dateFin')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateFin')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.demandeConge.motifRejet" for="field_motifRejet">Motif Rejet</label>
+                    <input type="text" class="form-control" name="motifRejet" id="field_motifRejet"
+                           formControlName="motifRejet"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.demandeConge.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
+                    <div *ngIf="editForm.get('libelle')!.invalid && (editForm.get('libelle')!.dirty || editForm.get('libelle')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('libelle')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.demandeConge.statutRH" for="field_statutRH">Statut RH</label>
+                    <select class="form-control" id="field_statutRH" name="statutRH" formControlName="statutRH">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statutDemandeOption.id === editForm.get('statutRH')!.value?.id ? editForm.get('statutRH')!.value : statutDemandeOption" *ngFor="let statutDemandeOption of statutdemandes; trackBy: trackById">{{ statutDemandeOption.libelle }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.demandeConge.statutDG" for="field_statutDG">Statut DG</label>
+                    <select class="form-control" id="field_statutDG" name="statutDG" formControlName="statutDG">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="statutDemandeOption.id === editForm.get('statutDG')!.value?.id ? editForm.get('statutDG')!.value : statutDemandeOption" *ngFor="let statutDemandeOption of statutdemandes; trackBy: trackById">{{ statutDemandeOption.libelle }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.demandeConge.collaborateur" for="field_collaborateur">Collaborateur</label>
+                    <select class="form-control" id="field_collaborateur" name="collaborateur" formControlName="collaborateur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="collaborateurOption.id === editForm.get('collaborateur')!.value?.id ? editForm.get('collaborateur')!.value : collaborateurOption" *ngFor="let collaborateurOption of collaborateurs; trackBy: trackById">{{ collaborateurOption.prenom }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.demandeConge.typeAbsence" for="field_typeAbsence">Type Absence</label>
+                    <select class="form-control" id="field_typeAbsence" name="typeAbsence" formControlName="typeAbsence">
+                        <option *ngIf="!editForm.get('typeAbsence')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="typeAbsenceOption.id === editForm.get('typeAbsence')!.value?.id ? editForm.get('typeAbsence')!.value : typeAbsenceOption" *ngFor="let typeAbsenceOption of typeabsences; trackBy: trackById">{{ typeAbsenceOption.libelle }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('typeAbsence')!.invalid && (editForm.get('typeAbsence')!.dirty || editForm.get('typeAbsence')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('typeAbsence')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

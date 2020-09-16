@@ -1,0 +1,137 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "collaborateur",
+            "otherEntityName": "collaborateur",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "prenom"
+        },
+        {
+            "relationshipName": "typePaiement",
+            "otherEntityName": "typePaiement",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "libelle"
+        },
+        {
+            "relationshipName": "remboursements",
+            "otherEntityName": "remboursement",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "bulletin"
+        },
+        {
+            "relationshipName": "exercice",
+            "otherEntityName": "exercice",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "moisConcerne",
+            "otherEntityName": "moisConcerne",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "libelle"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "retenueIpm",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "retenuePharmacie",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "autreRetenue",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "brutFiscal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "netAPayer",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "salaireBrutMensuel",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "impotSurRevenu",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "trimf",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ipresPartSalariale",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totRetenue",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ipresPartPatronales",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cssAccidentDeTravail",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cssPrestationFamiliale",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ipmPatronale",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "contributionForfaitaire",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nbPart",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "nbFemmes",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nbEnfants",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "primeImposable",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "primeNonImposable",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "avantage",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20190110175942",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "bulletin",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

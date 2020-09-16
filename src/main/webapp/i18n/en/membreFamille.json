@@ -1,0 +1,31 @@
+{
+    "sigrhpApp": {
+        "membreFamille": {
+            "home": {
+                "title": "Membre Familles",
+                "createLabel": "Create a new Membre Famille",
+                "createOrEditLabel": "Create or edit a Membre Famille"
+            },
+            "created": "A new Membre Famille is created with identifier {{ param }}",
+            "updated": "A Membre Famille is updated with identifier {{ param }}",
+            "deleted": "A Membre Famille is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Membre Famille {{ id }}?"
+            },
+            "detail": {
+                "title": "Membre Famille"
+            },
+            "prenom": "Prenom",
+            "nom": "Nom",
+            "adresse": "Adresse",
+            "telephone": "Telephone",
+            "dateNaissance": "Date Naissance",
+            "dateMariage": "Date Mariage",
+            "photo": "Photo",
+            "isActif": "Is Actif",
+            "collaborateur": "Collaborateur",
+            "sexe": "Sexe",
+            "typeRelation": "Type Relation"
+        }
+    }
+}

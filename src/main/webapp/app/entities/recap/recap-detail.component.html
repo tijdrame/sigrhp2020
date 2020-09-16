@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="recap">
+            <h2><span jhiTranslate="sigrhpApp.recap.detail.title">Recap</span> {{ recap.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.recap.brutFiscal">Brut Fiscal</span></dt>
+                <dd>
+                    <span>{{ recap.brutFiscal }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.netAPayer">Net A Payer</span></dt>
+                <dd>
+                    <span>{{ recap.netAPayer }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.salaireBrutMensuel">Salaire Brut Mensuel</span></dt>
+                <dd>
+                    <span>{{ recap.salaireBrutMensuel }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.impotSurRevenu">Impot Sur Revenu</span></dt>
+                <dd>
+                    <span>{{ recap.impotSurRevenu }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.trimf">Trimf</span></dt>
+                <dd>
+                    <span>{{ recap.trimf }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.ipresPartSalariale">Ipres Part Salariale</span></dt>
+                <dd>
+                    <span>{{ recap.ipresPartSalariale }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.totRetenue">Tot Retenue</span></dt>
+                <dd>
+                    <span>{{ recap.totRetenue }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.ipresPartPatronales">Ipres Part Patronales</span></dt>
+                <dd>
+                    <span>{{ recap.ipresPartPatronales }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.cssAccidentDeTravail">Css Accident De Travail</span></dt>
+                <dd>
+                    <span>{{ recap.cssAccidentDeTravail }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.cssPrestationFamiliale">Css Prestation Familiale</span></dt>
+                <dd>
+                    <span>{{ recap.cssPrestationFamiliale }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.ipmPatronale">Ipm Patronale</span></dt>
+                <dd>
+                    <span>{{ recap.ipmPatronale }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.contributionForfaitaire">Contribution Forfaitaire</span></dt>
+                <dd>
+                    <span>{{ recap.contributionForfaitaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.primeImposable">Prime Imposable</span></dt>
+                <dd>
+                    <span>{{ recap.primeImposable }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.primeNonImposable">Prime Non Imposable</span></dt>
+                <dd>
+                    <span>{{ recap.primeNonImposable }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.avantage">Avantage</span></dt>
+                <dd>
+                    <span>{{ recap.avantage }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.recapLigne">Recap Ligne</span></dt>
+                <dd>
+                    <span>{{ recap.recapLigne }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.recap.collaborateur">Collaborateur</span></dt>
+                <dd>
+                    <div *ngIf="recap.collaborateur">
+                        <a [routerLink]="['/collaborateur', recap.collaborateur?.id, 'view']">{{ recap.collaborateur?.prenom }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/recap', recap.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

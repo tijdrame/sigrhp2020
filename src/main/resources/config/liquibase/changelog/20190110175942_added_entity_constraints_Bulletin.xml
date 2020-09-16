@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Bulletin.
+    -->
+    <changeSet id="20190110175942-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id"
+                                 baseTableName="bulletin"
+                                 constraintName="fk_bulletin_collaborateur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="collaborateur"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_paiement_id"
+                                 baseTableName="bulletin"
+                                 constraintName="fk_bulletin_type_paiement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_paiement"/>
+
+        <addForeignKeyConstraint baseColumnNames="bulletin_id"
+                                 baseTableName="bulletin_remboursements"
+                                 constraintName="fk_bulletin_remboursements_bulletin_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bulletin"/>
+
+        <addForeignKeyConstraint baseColumnNames="remboursements_id"
+                                 baseTableName="bulletin_remboursements"
+                                 constraintName="fk_bulletin_remboursements_remboursements_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="remboursement"/>
+        
+        <addForeignKeyConstraint baseColumnNames="exercice_id"
+                                 baseTableName="bulletin"
+                                 constraintName="fk_bulletin_exercice_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exercice"/>
+
+        <addForeignKeyConstraint baseColumnNames="mois_concerne_id"
+                                 baseTableName="bulletin"
+                                 constraintName="fk_bulletin_mois_concerne_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mois_concerne"/>
+
+    </changeSet>
+</databaseChangeLog>

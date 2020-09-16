@@ -1,0 +1,22 @@
+{
+    "sigrhpApp": {
+        "userExtra": {
+            "home": {
+                "title": "Liste des Administrateurs",
+                "createLabel": "Créer un nouveau Administrateur",
+                "createOrEditLabel": "Créer ou éditer un Administrateur"
+            },
+            "created": "Un nouveau Administrateur a été créé avec l'identifiant {{ param }}",
+            "updated": "L'Administrateur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "L'Administrateur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer l'Administrateur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Administrateur"
+            },
+            "structure": "Structure",
+            "user": "User"
+        }
+    }
+}

@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigrhpApp.detailPret.home.title">Detail Prets</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-detail-pret" [routerLink]="['/detail-pret/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sigrhpApp.detailPret.home.createLabel">
+            Create a new Detail Pret
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="detailPrets?.length === 0">
+        <span jhiTranslate="sigrhpApp.detailPret.home.notFound">No detailPrets found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="detailPrets && detailPrets.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montant"><span jhiTranslate="sigrhpApp.detailPret.montant">Montant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isRembourse"><span jhiTranslate="sigrhpApp.detailPret.isRembourse">Is Rembourse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="collaborateur.prenom"><span jhiTranslate="sigrhpApp.detailPret.collaborateur">Collaborateur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pret.libelle"><span jhiTranslate="sigrhpApp.detailPret.pret">Pret</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let detailPret of detailPrets ;trackBy: trackId">
+                    <td><a [routerLink]="['/detail-pret', detailPret.id, 'view']">{{ detailPret.id }}</a></td>
+                    <td>{{ detailPret.montant }}</td>
+                    <td>{{ detailPret.isRembourse }}</td>
+                    <td>
+                        <div *ngIf="detailPret.collaborateur">
+                            <a [routerLink]="['/collaborateur', detailPret.collaborateur?.id, 'view']" >{{ detailPret.collaborateur?.prenom }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="detailPret.pret">
+                            <a [routerLink]="['/pret', detailPret.pret?.id, 'view']" >{{ detailPret.pret?.libelle }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/detail-pret', detailPret.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/detail-pret', detailPret.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(detailPret)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="detailPrets && detailPrets.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

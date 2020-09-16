@@ -1,0 +1,21 @@
+{
+    "sigrhpApp": {
+        "nationalite": {
+            "home": {
+                "title": "Liste des Nationalites",
+                "createLabel": "Créer une Nationalite",
+                "createOrEditLabel": "Créer ou éditer une Nationalite"
+            },
+            "created": "Une Nationalite a été créé avec l'identifiant {{ param }}",
+            "updated": "La Nationalite avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Nationalite avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la Nationalite {{ id }} ?"
+            },
+            "detail": {
+                "title": "Nationalite"
+            },
+            "libelle": "Libelle"
+        }
+    }
+}

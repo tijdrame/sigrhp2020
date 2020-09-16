@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-detail-pret-heading" jhiTranslate="sigrhpApp.detailPret.home.createOrEditLabel">Create or edit a Detail Pret</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.detailPret.montant" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                           formControlName="montant"/>
+                    <div *ngIf="editForm.get('montant')!.invalid && (editForm.get('montant')!.dirty || editForm.get('montant')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montant')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('montant')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.detailPret.isRembourse" for="field_isRembourse">Is Rembourse</label>
+                    <input type="checkbox" class="form-control" name="isRembourse" id="field_isRembourse"
+                           formControlName="isRembourse"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.detailPret.collaborateur" for="field_collaborateur">Collaborateur</label>
+                    <select class="form-control" id="field_collaborateur" name="collaborateur" formControlName="collaborateur">
+                        <option *ngIf="!editForm.get('collaborateur')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="collaborateurOption.id === editForm.get('collaborateur')!.value?.id ? editForm.get('collaborateur')!.value : collaborateurOption" *ngFor="let collaborateurOption of collaborateurs; trackBy: trackById">{{ collaborateurOption.prenom }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('collaborateur')!.invalid && (editForm.get('collaborateur')!.dirty || editForm.get('collaborateur')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('collaborateur')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sigrhpApp.detailPret.pret" for="field_pret">Pret</label>
+                    <select class="form-control" id="field_pret" name="pret" formControlName="pret">
+                        <option *ngIf="!editForm.get('pret')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="pretOption.id === editForm.get('pret')!.value?.id ? editForm.get('pret')!.value : pretOption" *ngFor="let pretOption of prets; trackBy: trackById">{{ pretOption.libelle }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('pret')!.invalid && (editForm.get('pret')!.dirty || editForm.get('pret')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('pret')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

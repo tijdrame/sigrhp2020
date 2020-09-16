@@ -1,0 +1,140 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bulletin">
+            <h2><span jhiTranslate="sigrhpApp.bulletin.detail.title">Bulletin</span> {{ bulletin.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sigrhpApp.bulletin.retenueIpm">Retenue Ipm</span></dt>
+                <dd>
+                    <span>{{ bulletin.retenueIpm }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.retenuePharmacie">Retenue Pharmacie</span></dt>
+                <dd>
+                    <span>{{ bulletin.retenuePharmacie }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.autreRetenue">Autre Retenue</span></dt>
+                <dd>
+                    <span>{{ bulletin.autreRetenue }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.brutFiscal">Brut Fiscal</span></dt>
+                <dd>
+                    <span>{{ bulletin.brutFiscal }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.netAPayer">Net A Payer</span></dt>
+                <dd>
+                    <span>{{ bulletin.netAPayer }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.salaireBrutMensuel">Salaire Brut Mensuel</span></dt>
+                <dd>
+                    <span>{{ bulletin.salaireBrutMensuel }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.impotSurRevenu">Impot Sur Revenu</span></dt>
+                <dd>
+                    <span>{{ bulletin.impotSurRevenu }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.trimf">Trimf</span></dt>
+                <dd>
+                    <span>{{ bulletin.trimf }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.ipresPartSalariale">Ipres Part Salariale</span></dt>
+                <dd>
+                    <span>{{ bulletin.ipresPartSalariale }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.totRetenue">Tot Retenue</span></dt>
+                <dd>
+                    <span>{{ bulletin.totRetenue }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.ipresPartPatronales">Ipres Part Patronales</span></dt>
+                <dd>
+                    <span>{{ bulletin.ipresPartPatronales }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.cssAccidentDeTravail">Css Accident De Travail</span></dt>
+                <dd>
+                    <span>{{ bulletin.cssAccidentDeTravail }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.cssPrestationFamiliale">Css Prestation Familiale</span></dt>
+                <dd>
+                    <span>{{ bulletin.cssPrestationFamiliale }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.ipmPatronale">Ipm Patronale</span></dt>
+                <dd>
+                    <span>{{ bulletin.ipmPatronale }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.contributionForfaitaire">Contribution Forfaitaire</span></dt>
+                <dd>
+                    <span>{{ bulletin.contributionForfaitaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.nbPart">Nb Part</span></dt>
+                <dd>
+                    <span>{{ bulletin.nbPart }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.nbFemmes">Nb Femmes</span></dt>
+                <dd>
+                    <span>{{ bulletin.nbFemmes }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.nbEnfants">Nb Enfants</span></dt>
+                <dd>
+                    <span>{{ bulletin.nbEnfants }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.primeImposable">Prime Imposable</span></dt>
+                <dd>
+                    <span>{{ bulletin.primeImposable }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.primeNonImposable">Prime Non Imposable</span></dt>
+                <dd>
+                    <span>{{ bulletin.primeNonImposable }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.avantage">Avantage</span></dt>
+                <dd>
+                    <span>{{ bulletin.avantage }}</span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.collaborateur">Collaborateur</span></dt>
+                <dd>
+                    <div *ngIf="bulletin.collaborateur">
+                        <a [routerLink]="['/collaborateur', bulletin.collaborateur?.id, 'view']">{{ bulletin.collaborateur?.prenom }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.typePaiement">Type Paiement</span></dt>
+                <dd>
+                    <div *ngIf="bulletin.typePaiement">
+                        <a [routerLink]="['/type-paiement', bulletin.typePaiement?.id, 'view']">{{ bulletin.typePaiement?.libelle }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.remboursements">Remboursements</span></dt>
+                <dd>
+                    <span *ngFor="let remboursements of bulletin.remboursements; let last = last">
+                        <a [routerLink]="['/remboursement', remboursements?.id, 'view']">{{ remboursements.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.exercice">Exercice</span></dt>
+                <dd>
+                    <div *ngIf="bulletin.exercice">
+                        <a [routerLink]="['/exercice', bulletin.exercice?.id, 'view']">{{ bulletin.exercice?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sigrhpApp.bulletin.moisConcerne">Mois Concerne</span></dt>
+                <dd>
+                    <div *ngIf="bulletin.moisConcerne">
+                        <a [routerLink]="['/mois-concerne', bulletin.moisConcerne?.id, 'view']">{{ bulletin.moisConcerne?.libelle }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bulletin', bulletin.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

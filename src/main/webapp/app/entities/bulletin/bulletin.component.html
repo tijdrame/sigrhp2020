@@ -1,0 +1,135 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sigrhpApp.bulletin.home.title">Bulletins</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bulletin" [routerLink]="['/bulletin/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sigrhpApp.bulletin.home.createLabel">
+            Create a new Bulletin
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bulletins?.length === 0">
+        <span jhiTranslate="sigrhpApp.moisConcerne.home.notFound">No bulletins found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bulletins && bulletins.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="retenueIpm"><span jhiTranslate="sigrhpApp.bulletin.retenueIpm">Retenue Ipm</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="retenuePharmacie"><span jhiTranslate="sigrhpApp.bulletin.retenuePharmacie">Retenue Pharmacie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="autreRetenue"><span jhiTranslate="sigrhpApp.bulletin.autreRetenue">Autre Retenue</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="brutFiscal"><span jhiTranslate="sigrhpApp.bulletin.brutFiscal">Brut Fiscal</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="netAPayer"><span jhiTranslate="sigrhpApp.bulletin.netAPayer">Net A Payer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="salaireBrutMensuel"><span jhiTranslate="sigrhpApp.bulletin.salaireBrutMensuel">Salaire Brut Mensuel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="impotSurRevenu"><span jhiTranslate="sigrhpApp.bulletin.impotSurRevenu">Impot Sur Revenu</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="trimf"><span jhiTranslate="sigrhpApp.bulletin.trimf">Trimf</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ipresPartSalariale"><span jhiTranslate="sigrhpApp.bulletin.ipresPartSalariale">Ipres Part Salariale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totRetenue"><span jhiTranslate="sigrhpApp.bulletin.totRetenue">Tot Retenue</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ipresPartPatronales"><span jhiTranslate="sigrhpApp.bulletin.ipresPartPatronales">Ipres Part Patronales</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cssAccidentDeTravail"><span jhiTranslate="sigrhpApp.bulletin.cssAccidentDeTravail">Css Accident De Travail</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cssPrestationFamiliale"><span jhiTranslate="sigrhpApp.bulletin.cssPrestationFamiliale">Css Prestation Familiale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ipmPatronale"><span jhiTranslate="sigrhpApp.bulletin.ipmPatronale">Ipm Patronale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="contributionForfaitaire"><span jhiTranslate="sigrhpApp.bulletin.contributionForfaitaire">Contribution Forfaitaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbPart"><span jhiTranslate="sigrhpApp.bulletin.nbPart">Nb Part</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbFemmes"><span jhiTranslate="sigrhpApp.bulletin.nbFemmes">Nb Femmes</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbEnfants"><span jhiTranslate="sigrhpApp.bulletin.nbEnfants">Nb Enfants</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="primeImposable"><span jhiTranslate="sigrhpApp.bulletin.primeImposable">Prime Imposable</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="primeNonImposable"><span jhiTranslate="sigrhpApp.bulletin.primeNonImposable">Prime Non Imposable</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="avantage"><span jhiTranslate="sigrhpApp.bulletin.avantage">Avantage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="collaborateur.prenom"><span jhiTranslate="sigrhpApp.bulletin.collaborateur">Collaborateur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typePaiement.libelle"><span jhiTranslate="sigrhpApp.bulletin.typePaiement">Type Paiement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="exercice.id"><span jhiTranslate="sigrhpApp.bulletin.exercice">Exercice</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="moisConcerne.libelle"><span jhiTranslate="sigrhpApp.bulletin.moisConcerne">Mois Concerne</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bulletin of bulletins ;trackBy: trackId">
+                    <td><a [routerLink]="['/bulletin', bulletin.id, 'view']">{{ bulletin.id }}</a></td>
+                    <td>{{ bulletin.retenueIpm }}</td>
+                    <td>{{ bulletin.retenuePharmacie }}</td>
+                    <td>{{ bulletin.autreRetenue }}</td>
+                    <td>{{ bulletin.brutFiscal }}</td>
+                    <td>{{ bulletin.netAPayer }}</td>
+                    <td>{{ bulletin.salaireBrutMensuel }}</td>
+                    <td>{{ bulletin.impotSurRevenu }}</td>
+                    <td>{{ bulletin.trimf }}</td>
+                    <td>{{ bulletin.ipresPartSalariale }}</td>
+                    <td>{{ bulletin.totRetenue }}</td>
+                    <td>{{ bulletin.ipresPartPatronales }}</td>
+                    <td>{{ bulletin.cssAccidentDeTravail }}</td>
+                    <td>{{ bulletin.cssPrestationFamiliale }}</td>
+                    <td>{{ bulletin.ipmPatronale }}</td>
+                    <td>{{ bulletin.contributionForfaitaire }}</td>
+                    <td>{{ bulletin.nbPart }}</td>
+                    <td>{{ bulletin.nbFemmes }}</td>
+                    <td>{{ bulletin.nbEnfants }}</td>
+                    <td>{{ bulletin.primeImposable }}</td>
+                    <td>{{ bulletin.primeNonImposable }}</td>
+                    <td>{{ bulletin.avantage }}</td>
+                    <td>
+                        <div *ngIf="bulletin.collaborateur">
+                            <a [routerLink]="['/collaborateur', bulletin.collaborateur?.id, 'view']" >{{ bulletin.collaborateur?.prenom }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bulletin.typePaiement">
+                            <a [routerLink]="['/type-paiement', bulletin.typePaiement?.id, 'view']" >{{ bulletin.typePaiement?.libelle }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bulletin.exercice">
+                            <a [routerLink]="['/exercice', bulletin.exercice?.id, 'view']" >{{ bulletin.exercice?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bulletin.moisConcerne">
+                            <a [routerLink]="['/mois-concerne', bulletin.moisConcerne?.id, 'view']" >{{ bulletin.moisConcerne?.libelle }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bulletin', bulletin.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bulletin', bulletin.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bulletin)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="bulletins && bulletins.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

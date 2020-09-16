@@ -1,0 +1,24 @@
+{
+    "sigrhpApp": {
+        "prime": {
+            "home": {
+                "title": "Liste Primes",
+                "createLabel": "Créer une nouvelle Prime",
+                "createOrEditLabel": "Créer ou éditer une Prime"
+            },
+            "created": "Une nouvelle Prime a été créé avec l'identifiant {{ param }}",
+            "updated": "La Prime avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "La Prime avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer la Prime {{ id }} ?"
+            },
+            "detail": {
+                "title": "Prime"
+            },
+            "libelle": "Libelle",
+            "code": "Code",
+            "imposable": "Imposable",
+            "structure": "Structure"
+        }
+    }
+}
