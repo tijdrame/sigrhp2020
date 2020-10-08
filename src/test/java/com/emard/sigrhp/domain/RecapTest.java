@@ -6,7 +6,7 @@ import com.emard.sigrhp.web.rest.TestUtil;
 
 public class RecapTest {
 
-    @Test
+    /*@Test
     public void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(Recap.class);
         Recap recap1 = new Recap();
@@ -18,5 +18,5 @@ public class RecapTest {
         assertThat(recap1).isNotEqualTo(recap2);
         recap1.setId(null);
         assertThat(recap1).isNotEqualTo(recap2);
-    }
+    }*/
 }

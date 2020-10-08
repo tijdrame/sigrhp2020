@@ -1,0 +1,509 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="tijdr (generated)" id="1600271298102-2">
+        <createTable tableName="absence">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="absencePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="date_absence" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="collaborateur_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="exercice_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="motif_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-3">
+        <createTable tableName="avantage_collab">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="avantage_collabPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="montant" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="avantage_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="collaborateur_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-4">
+        <createTable tableName="bulletin">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="bulletinPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="autre_retenue" type="FLOAT8"/>
+            <column name="avantage" type="FLOAT8"/>
+            <column name="brut_fiscal" type="FLOAT8"/>
+            <column name="contribution_forfaitaire" type="FLOAT8"/>
+            <column name="css_accident_de_travail" type="FLOAT8"/>
+            <column name="css_prestation_familiale" type="FLOAT8"/>
+            <column name="impot_sur_revenu" type="FLOAT8"/>
+            <column name="ipm_patronale" type="FLOAT8"/>
+            <column name="ipres_part_patronales" type="FLOAT8"/>
+            <column name="ipres_part_salariale" type="FLOAT8"/>
+            <column name="nb_enfants" type="INTEGER"/>
+            <column name="nb_femmes" type="INTEGER"/>
+            <column name="nb_part" type="FLOAT4"/>
+            <column name="net_a_payer" type="FLOAT8"/>
+            <column name="prime_imposable" type="FLOAT8"/>
+            <column name="prime_non_imposable" type="FLOAT8"/>
+            <column name="retenue_ipm" type="FLOAT8"/>
+            <column name="retenue_pharmacie" type="FLOAT8"/>
+            <column name="salaire_brut_mensuel" type="FLOAT8"/>
+            <column name="tot_retenue" type="FLOAT8"/>
+            <column name="trimf" type="FLOAT8"/>
+            <column name="collaborateur_id" type="BIGINT"/>
+            <column name="exercice_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mois_concerne_id" type="BIGINT"/>
+            <column name="type_paiement_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-5">
+        <createTable tableName="bulletin_remboursements">
+            <column name="bulletin_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="remboursements_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-6">
+        <createTable tableName="collaborateur">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="collaborateurPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="adresse" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_naissance" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="login" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="matricule" type="VARCHAR(255)"/>
+            <column name="nom" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numero_rib" type="VARCHAR(255)"/>
+            <column name="photo" type="BYTEA"/>
+            <column name="photo_content_type" type="VARCHAR(255)"/>
+            <column name="prenom" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prime_transport" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="retenue_repas" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="salaire_de_base" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sur_salaire" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="taux_horaire" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephone" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="categorie_id" type="BIGINT"/>
+            <column name="fonction_id" type="BIGINT"/>
+            <column name="nationalite_id" type="BIGINT"/>
+            <column name="regime_id" type="BIGINT"/>
+            <column name="sexe_id" type="BIGINT"/>
+            <column name="situation_matrimoniale_id" type="BIGINT"/>
+            <column name="statut_id" type="BIGINT"/>
+            <column name="structure_id" type="BIGINT"/>
+            <column name="type_contrat_id" type="BIGINT"/>
+            <column name="user_collab_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-7">
+        <createTable tableName="demande_conge">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="demande_congePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="date_debut" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_fin" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="libelle" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="motif_rejet" type="VARCHAR(255)"/>
+            <column name="collaborateur_id" type="BIGINT"/>
+            <column name="statutdg_id" type="BIGINT"/>
+            <column name="statutrh_id" type="BIGINT"/>
+            <column name="type_absence_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-8">
+        <createTable tableName="detail_pret">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="detail_pretPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="is_rembourse" type="BOOLEAN"/>
+            <column name="montant" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="collaborateur_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pret_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-9">
+        <createTable tableName="membre_famille">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="membre_famillePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="adresse" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_mariage" type="date"/>
+            <column name="date_naissance" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_actif" type="BOOLEAN"/>
+            <column name="nom" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="photo" type="BYTEA"/>
+            <column name="photo_content_type" type="VARCHAR(255)"/>
+            <column name="prenom" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephone" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="collaborateur_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sexe_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_relation_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-10">
+        <createTable tableName="pieces">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="piecesPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="date_creation" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_expiration" type="date"/>
+            <column name="image" type="BYTEA"/>
+            <column name="image_content_type" type="VARCHAR(255)"/>
+            <column name="libelle" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="collaborateur_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-11">
+        <createTable tableName="pret">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pretPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="date_debut_remboursement" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_pret" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="libelle" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nb_remboursement" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="structure_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-12">
+        <createTable tableName="prime_collab">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="prime_collabPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="montant" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="collaborateur_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prime_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-13">
+        <createTable tableName="remboursement">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="remboursementPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_deleted" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_deleted" type="VARCHAR(255)"/>
+            <column name="date_remboursement" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_rembourse" type="BOOLEAN"/>
+            <column name="montant" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="detail_pret_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-14">
+        <addColumn tableName="type_relation">
+            <column name="nb_parts" type="float8">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-15">
+        <addUniqueConstraint columnNames="email" constraintName="UC_COLLABORATEUREMAIL_COL" tableName="collaborateur"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-16">
+        <addUniqueConstraint columnNames="login" constraintName="UC_COLLABORATEURLOGIN_COL" tableName="collaborateur"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-17">
+        <addUniqueConstraint columnNames="matricule" constraintName="UC_COLLABORATEURMATRICULE_COL" tableName="collaborateur"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-18">
+        <addForeignKeyConstraint baseColumnNames="mois_concerne_id" baseTableName="bulletin" constraintName="FK2jj125gwxg14xf65ns1uohr9b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="mois_concerne" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-19">
+        <addForeignKeyConstraint baseColumnNames="statut_id" baseTableName="collaborateur" constraintName="FK346s2egkovh8sb48ks45i93dm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="statut" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-20">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="absence" constraintName="FK4dvkqvrwakmhr79pcl9c6pgcq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-21">
+        <addForeignKeyConstraint baseColumnNames="statutdg_id" baseTableName="demande_conge" constraintName="FK4poefet10loqdkmfn3ol587sr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="statut_demande" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-22">
+        <addForeignKeyConstraint baseColumnNames="pret_id" baseTableName="detail_pret" constraintName="FK52scp0dki6d50h9f40ebdmgri" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="pret" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-23">
+        <addForeignKeyConstraint baseColumnNames="structure_id" baseTableName="collaborateur" constraintName="FK5lbeoq4kjsm3wdpg67dy49uh5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="structure" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-24">
+        <addForeignKeyConstraint baseColumnNames="situation_matrimoniale_id" baseTableName="collaborateur" constraintName="FK7hlrycn4ytb2xrhqag8wuhs9k" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="situation_matrimoniale" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-25">
+        <addForeignKeyConstraint baseColumnNames="fonction_id" baseTableName="collaborateur" constraintName="FK7sgbvclsxifqlahg2nlgox6h3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fonction" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-26">
+        <addForeignKeyConstraint baseColumnNames="avantage_id" baseTableName="avantage_collab" constraintName="FK8e2s9r6tb3erfjm6ch5150m1h" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="avantage" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-27">
+        <addForeignKeyConstraint baseColumnNames="type_paiement_id" baseTableName="bulletin" constraintName="FK8pk37vw3g9ciodwbdkfooxku9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_paiement" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-28">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="prime_collab" constraintName="FK983pemi37tkyiot3g7urgr41c" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-29">
+        <addForeignKeyConstraint baseColumnNames="sexe_id" baseTableName="collaborateur" constraintName="FK9l8cbp1ud3ndtd1p2yx88u7d5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sexe" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-30">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="avantage_collab" constraintName="FKan1xs54ys7nu8ykgsvj126m4o" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-31">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="detail_pret" constraintName="FKapo7lqpuotf23m425mc5aw35y" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-32">
+        <addForeignKeyConstraint baseColumnNames="categorie_id" baseTableName="collaborateur" constraintName="FKat1yx5r7wi0bf8je6rdb11w70" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="categorie" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-33">
+        <addForeignKeyConstraint baseColumnNames="user_collab_id" baseTableName="collaborateur" constraintName="FKbo9ynih6y35tlcmubs3i7mpkl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-34">
+        <addForeignKeyConstraint baseColumnNames="statutrh_id" baseTableName="demande_conge" constraintName="FKbq9yen8t9iex4deo6te982dk8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="statut_demande" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-35">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="demande_conge" constraintName="FKccvkycuhb1lhoqy67x5v42nog" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-36">
+        <addForeignKeyConstraint baseColumnNames="exercice_id" baseTableName="bulletin" constraintName="FKd8ocdtmu8xdq4fgdkws61txtm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="exercice" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-37">
+        <addForeignKeyConstraint baseColumnNames="bulletin_id" baseTableName="bulletin_remboursements" constraintName="FKdgqg67l3q42bvqp9eurqtbw3h" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="bulletin" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-38">
+        <addForeignKeyConstraint baseColumnNames="sexe_id" baseTableName="membre_famille" constraintName="FKe5e762b2rrqspnqu6bu59806b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sexe" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-39">
+        <addForeignKeyConstraint baseColumnNames="prime_id" baseTableName="prime_collab" constraintName="FKfiqh3xasifvfj5ov7n60ggaya" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="prime" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-40">
+        <addForeignKeyConstraint baseColumnNames="detail_pret_id" baseTableName="remboursement" constraintName="FKg0aexhxr98mpgqa2dicjagumy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="detail_pret" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-41">
+        <addForeignKeyConstraint baseColumnNames="exercice_id" baseTableName="absence" constraintName="FKge0gj1n2k1dhnp9wr92ty2ixb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="exercice" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-42">
+        <addForeignKeyConstraint baseColumnNames="type_contrat_id" baseTableName="collaborateur" constraintName="FKgie0kfoeg0abjhekfvcs71f7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_contrat" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-43">
+        <addForeignKeyConstraint baseColumnNames="type_absence_id" baseTableName="demande_conge" constraintName="FKgu5il7h5ro08xk1ck514rdynp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_absence" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-44">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="bulletin" constraintName="FKimxpxlsofs9l8x1ho0w78hu2a" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-45">
+        <addForeignKeyConstraint baseColumnNames="remboursements_id" baseTableName="bulletin_remboursements" constraintName="FKiq2vgavl2esas4kfdpa16vu80" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="remboursement" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-46">
+        <addForeignKeyConstraint baseColumnNames="regime_id" baseTableName="collaborateur" constraintName="FKiudknwwkxddn54ed1ewukn6j7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="regime" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-47">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="membre_famille" constraintName="FKkgx6ybjhol5ccxlkww1nj7xdv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-48">
+        <addForeignKeyConstraint baseColumnNames="collaborateur_id" baseTableName="pieces" constraintName="FKkycbp4j54k3l6rwjnqo80ilo" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="collaborateur" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-49">
+        <addForeignKeyConstraint baseColumnNames="structure_id" baseTableName="pret" constraintName="FKn5n82vdsm3oj66wtu5h9xa5gp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="structure" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-50">
+        <addForeignKeyConstraint baseColumnNames="nationalite_id" baseTableName="collaborateur" constraintName="FKo4sjwahiw8r24i92snrvh4i51" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="nationalite" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-51">
+        <addForeignKeyConstraint baseColumnNames="type_relation_id" baseTableName="membre_famille" constraintName="FKt414bfuevy4tpjkatn03q1982" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="type_relation" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-52">
+        <addForeignKeyConstraint baseColumnNames="motif_id" baseTableName="absence" constraintName="FKys7lbi0re687b2vhfn990osp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="motif" validate="true"/>
+    </changeSet>
+    <changeSet author="tijdr (generated)" id="1600271298102-1">
+        <alterSequence sequenceName="sequence_generator"/>
+    </changeSet>
+</databaseChangeLog>

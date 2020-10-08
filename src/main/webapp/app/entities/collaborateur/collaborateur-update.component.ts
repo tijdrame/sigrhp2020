@@ -117,7 +117,7 @@ export class CollaborateurUpdateComponent implements OnInit {
 
       this.categorieService.query().subscribe((res: HttpResponse<ICategorie[]>) => (this.categories = res.body || []));
 
-      this.nationaliteService.query().subscribe((res: HttpResponse<INationalite[]>) => (this.nationalites = res.body || []));
+      this.nationaliteService.queryBis().subscribe((res: HttpResponse<INationalite[]>) => (this.nationalites = res.body || []));
 
       this.statutService.query().subscribe((res: HttpResponse<IStatut[]>) => (this.statuts = res.body || []));
 

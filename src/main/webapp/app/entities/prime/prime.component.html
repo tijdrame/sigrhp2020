@@ -35,10 +35,10 @@
                     <td><a [routerLink]="['/prime', prime.id, 'view']">{{ prime.id }}</a></td>
                     <td>{{ prime.libelle }}</td>
                     <td>{{ prime.code }}</td>
-                    <td>{{ prime.imposable }}</td>
+                    <td>{{ prime.imposable?'Oui':'Non' }}</td>
                     <td>
                         <div *ngIf="prime.structure">
-                            <a [routerLink]="['/structure', prime.structure?.id, 'view']" >{{ prime.structure?.id }}</a>
+                            <a [routerLink]="['/structure', prime.structure?.id, 'view']" >{{ prime.structure?.denomination }}</a>
                         </div>
                     </td>
                     <td class="text-right">

@@ -23,7 +23,7 @@
                 <dt><span jhiTranslate="sigrhpApp.prime.structure">Structure</span></dt>
                 <dd>
                     <div *ngIf="prime.structure">
-                        <a [routerLink]="['/structure', prime.structure?.id, 'view']">{{ prime.structure?.id }}</a>
+                        <a [routerLink]="['/structure', prime.structure?.id, 'view']">{{ prime.structure?.denomination }}</a>
                     </div>
                 </dd>
             </dl>

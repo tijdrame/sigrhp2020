@@ -15,22 +15,18 @@
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="membreFamilles?.length === 0">
-        <span jhiTranslate="sigrhpApp.membreFamille.home.notFound">No membreFamilles found</span>
+        <span jhiTranslate="sigrhpApp.moisConcerne.home.notFound">No membreFamilles found</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="membreFamilles && membreFamilles.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="sigrhpApp.membreFamille.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="nom"><span jhiTranslate="sigrhpApp.membreFamille.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="sigrhpApp.membreFamille.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="telephone"><span jhiTranslate="sigrhpApp.membreFamille.telephone">Telephone</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="dateNaissance"><span jhiTranslate="sigrhpApp.membreFamille.dateNaissance">Date Naissance</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="dateMariage"><span jhiTranslate="sigrhpApp.membreFamille.dateMariage">Date Mariage</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="photo"><span jhiTranslate="sigrhpApp.membreFamille.photo">Photo</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="isActif"><span jhiTranslate="sigrhpApp.membreFamille.isActif">Is Actif</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="collaborateur.id"><span jhiTranslate="sigrhpApp.membreFamille.collaborateur">Collaborateur</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="sexe.libelle"><span jhiTranslate="sigrhpApp.membreFamille.sexe">Sexe</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="typeRelation.libelle"><span jhiTranslate="sigrhpApp.membreFamille.typeRelation">Type Relation</span> <fa-icon icon="sort"></fa-icon></th>
@@ -39,23 +35,15 @@
             </thead>
             <tbody>
                 <tr *ngFor="let membreFamille of membreFamilles ;trackBy: trackId">
-                    <td><a [routerLink]="['/membre-famille', membreFamille.id, 'view']">{{ membreFamille.id }}</a></td>
                     <td>{{ membreFamille.prenom }}</td>
                     <td>{{ membreFamille.nom }}</td>
                     <td>{{ membreFamille.adresse }}</td>
                     <td>{{ membreFamille.telephone }}</td>
-                    <td>{{ membreFamille.dateNaissance | date:'mediumDate' }}</td>
-                    <td>{{ membreFamille.dateMariage | date:'mediumDate' }}</td>
-                    <td>
-                        <a *ngIf="membreFamille.photo" (click)="openFile(membreFamille.photoContentType, membreFamille.photo)">
-                            <img [src]="'data:' + membreFamille.photoContentType + ';base64,' + membreFamille.photo" style="max-height: 30px;" alt="membreFamille image"/>
-                        </a>
-                        <span *ngIf="membreFamille.photo">{{ membreFamille.photoContentType }}, {{ byteSize(membreFamille.photo) }}</span>
-                    </td>
-                    <td>{{ membreFamille.isActif }}</td>
+                    <td>{{ membreFamille.dateNaissance | date:'dd/MM/yyyy' }}</td>
+                    
                     <td>
                         <div *ngIf="membreFamille.collaborateur">
-                            <a [routerLink]="['/collaborateur', membreFamille.collaborateur?.id, 'view']" >{{ membreFamille.collaborateur?.id }}</a>
+                            <a [routerLink]="['/collaborateur', membreFamille.collaborateur?.id, 'view']" >{{ membreFamille.collaborateur?.prenom }} {{ membreFamille.collaborateur?.nom }}</a>
                         </div>
                     </td>
                     <td>

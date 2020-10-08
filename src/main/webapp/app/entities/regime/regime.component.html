@@ -39,7 +39,7 @@
                     <td>{{ regime.code }}</td>
                     <td>{{ regime.tauxPatronal }}</td>
                     <td>{{ regime.tauxSalarial }}</td>
-                    <td>{{ regime.plafond }}</td>
+                    <td>{{ regime.plafond|number }}</td>
                     <td>
                         <div *ngIf="regime.structure">
                             <a [routerLink]="['/structure', regime.structure?.id, 'view']" >{{ regime.structure?.denomination }}</a>

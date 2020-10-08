@@ -71,7 +71,8 @@
     <include file="config/liquibase/changelog/20190109174449_added_entity_constraints_MembreFamille.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190111121322_added_entity_constraints_Pieces.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190111121052_added_entity_constraints_PrimeCollab.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20190111160319_added_entity_constraints_Recap.xml" relativeToChangelogFile="false"/> -->
+    <include file="config/liquibase/changelog/20190111160319_added_entity_constraints_Recap.xml" relativeToChangelogFile="false"/> 
+    <include file="config/liquibase/changelog/20200916152115_changelog.xml" relativeToChangelogFile="false"/>-->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

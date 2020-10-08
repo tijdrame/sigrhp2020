@@ -35,7 +35,7 @@ import {
   faHome,
   faPrint, faFileArchive,
   faFile, faIdCard, faMoneyBill, faSuitcase, faAngleDoubleUp,
-  faMinusSquare, faBatteryQuarter, faAddressBook, faCreditCard
+  faMinusSquare, faBatteryQuarter, faAddressBook, faCreditCard, faClock, faKey
   // jhipster-needle-add-icon-import
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -76,7 +76,8 @@ export const fontAwesomeIcons = [
   faAsterisk,
   faPrint, faFileArchive,
   faFile, faIdCard, faMoneyBill, faSuitcase, faAngleDoubleUp,
-  faMinusSquare, faBatteryQuarter, faAddressBook, faCreditCard
+  faMinusSquare, faBatteryQuarter, faAddressBook, faCreditCard, faClock,
+  faKey
   
   // jhipster-needle-add-icon-import
 ];
